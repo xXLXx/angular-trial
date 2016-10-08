@@ -15,52 +15,213 @@
         	</div>
         	<br/>
         	<div class="row">
-				<div class="col-md-9">
+				<div class="col-md-8">
 					<div class="panel panel-white">
 						<div class="panel-body">
 							<div class="tabbable">
 								<ul id="myTab1" class="nav nav-tabs">
 									<li class="active">
-										<a href="#myTab1_example1" data-toggle="tab" aria-expanded="true"> Summary </a>
+										<a href="#myTab1_example1" data-toggle="tab"  ng-click="vm.OpenTab($event)"> SUMMARY </a>
 									</li>
 									<li class="">
-										<a href="#myTab1_example2" data-toggle="tab" aria-expanded="false"> Tab 2 </a>
+										<a href="#myTab1_example2" data-toggle="tab"  ng-click="vm.OpenTab($event)"> CLIENTS </a>
 									</li>
 									<li class="">
-										<a href="#myTab1_example3" data-toggle="tab" aria-expanded="false"> Tab 3 </a>
+										<a href="#myTab1_example3" data-toggle="tab"  ng-click="vm.OpenTab($event)"> LOANS </a>
 									</li>
 								</ul>
 								<div class="tab-content">
 									<div class="tab-pane fade active in" id="myTab1_example1">
-										<p>
-											Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.
-										</p>
-										<p>
-											Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
-										</p>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="col-md-5">
+													<div class="panel panel-white">
+														<div class="panel-heading">
+															<div class="col-md-8 pull-left">
+																<h3>Clients</h3>
+															</div>
+															<div class="col-dm-4 pull-right">
+																<span>VIEW DETAILS</span>
+															</div>
+														</div>
+														<div class="panel-body">
+															<table class="table table-bordered">
+																<tbody>
+																	<tr>
+																		<td>
+																			ADULT
+																		</td>
+																		<td></td>
+																	</tr>
+																	<tr>
+																		<td>
+																			CHILDREN
+																		</td>
+																		<td></td>
+																	</tr>
+																	<tr>
+																		<td>
+																			PHONE
+																		</td>
+																		<td></td>
+																	</tr>
+																	<tr>
+																		<td>
+																			EMAIL
+																		</td>
+																		<td></td>
+																	</tr>
+																	<tr>
+																		<td>
+																			ADDRESS
+																		</td>
+																		<td></td>
+																	</tr>
+																</tbody>
+																
+															</table>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-7">
+													<div class="row">
+														<div class="panel panel-white">
+															<div class="panel-heading">
+																<div class="col-md-8 pull-left">
+																	<h3>Loans</h3>
+																</div>
+																<div class="col-dm-4 pull-right">
+																	<span>VIEW DETAILS</span>
+																</div>
+															</div>
+															<div class="panel-body">
+																<table class="table table-stiped">
+																	<tbody>
+																		<tr>
+																			<td>
+																				$sfsf
+																			</td>
+																			<td>
+																				$sfsdf
+																			</td>
+																			<td>
+																				Submitted to Lender
+																			</td>
+																		</tr>
+																	</tbody>
+																</table>
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="panel panel-white">
+															<div class="panel-heading">
+																<div class="col-md-8 pull-left">
+																	<h3>Existing Benefits <span class="badge">1</span></h3>
+																</div>
+																<div class="col-dm-4 pull-right">
+																	<span>VIEW DETAILS</span>
+																</div>
+															</div>
+															<div class="panel-body">
+
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
 									</div>
 									<div class="tab-pane fade" id="myTab1_example2">
-										<p>
-											Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo.
-										</p>
-										<p>
-											Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.
-										</p>
+										
 									</div>
 									<div class="tab-pane fade" id="myTab1_example3">
-										<p>
-											Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin.
-										</p>
-										<p>
-											Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
-										</p>
+										
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-4">
+					<div class="row">
+						<div class="panel panel-white">
+							<div class="panel-heading border-bottom">
+								<h4 class="panel-title">Applications</h4>
+							</div>
+							<div class="panel-body">
+								<ul class="list-group">
+									<li class="list-group-item no-radius no-margin no-border-top no-border-left no-border-right">
+										<div class="row">
+											<div class="col-xs-6">
+												<a href="#"> <div class="lettericon margin-right-5" data-text="Omega" data-size="sm" data-color="#7F8C8D"><div class="letter-icon-wrapper size-sm" style="background-color: rgb(127, 140, 141);"><span class="letter-icon">O</span></div></div> Omega </a>
+											</div>
+											<div class="col-xs-6">
+												<span class="block padding-top-10">
+													<div class="progress progress-xs no-radius background-dark no-margin">
+														<div class="progress-bar progress-bar-purple" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: 89%;">
+															<span class="sr-only"> 89% </span>
+														</div>
+													</div> </span>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="panel panel-white">
+							<div class="panel-heading border-bottom">
+								<h4 class="panel-title">Applications</h4>
+							</div>
+							<div class="panel-body">
+								<ul class="list-group">
+									<li class="list-group-item no-radius no-margin no-border-top no-border-left no-border-right">
+										<div class="row">
+											<div class="col-xs-6">
+												<a href="#"> <div class="lettericon margin-right-5" data-text="Omega" data-size="sm" data-color="#7F8C8D"><div class="letter-icon-wrapper size-sm" style="background-color: rgb(127, 140, 141);"><span class="letter-icon">O</span></div></div> Omega </a>
+											</div>
+											<div class="col-xs-6">
+												<span class="block padding-top-10">
+													<div class="progress progress-xs no-radius background-dark no-margin">
+														<div class="progress-bar progress-bar-purple" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: 89%;">
+															<span class="sr-only"> 89% </span>
+														</div>
+													</div> </span>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="panel panel-white">
+							<div class="panel-heading border-bottom">
+								<h4 class="panel-title">Applications</h4>
+							</div>
+							<div class="panel-body">
+								<ul class="list-group">
+									<li class="list-group-item no-radius no-margin no-border-top no-border-left no-border-right">
+										<div class="row">
+											<div class="col-xs-6">
+												<a href="#"> <div class="lettericon margin-right-5" data-text="Omega" data-size="sm" data-color="#7F8C8D"><div class="letter-icon-wrapper size-sm" style="background-color: rgb(127, 140, 141);"><span class="letter-icon">O</span></div></div> Omega </a>
+											</div>
+											<div class="col-xs-6">
+												<span class="block padding-top-10">
+													<div class="progress progress-xs no-radius background-dark no-margin">
+														<div class="progress-bar progress-bar-purple" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: 89%;">
+															<span class="sr-only"> 89% </span>
+														</div>
+													</div> </span>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
         </div>

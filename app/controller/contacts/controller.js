@@ -26,6 +26,7 @@
         vm.ShowAddModalContact = ShowAddModalContact;
         vm.ShowModalClientInfo = ShowModalClientInfo;
         vm.ShowInfo = ShowInfo;
+        vm.OpenTab = OpenTab;
 
         $rootScope.$on('MODAL_ADD_CONTACT_OK', _OnAddContactModalOk);
         
@@ -85,6 +86,11 @@
 
         function ShowInfo (family_info) {
             $rootScope.FamilyName = family_info.FamilyFullName;
+        }
+
+        function OpenTab (e) {
+            e.preventDefault();
+            $(e.target).tab('show');
         }
         
 
