@@ -15,6 +15,9 @@
         var vm = this;
             vm.family_lists = [];
             vm.contact_count = 0;
+            vm.summary_info = [];
+            vm.adult_lists = [];
+            vm.child_lists = [];
     // ===================================== //
     //          FUNCTION REFERENCE           //
     // ===================================== //
@@ -49,11 +52,33 @@
                 });
             });
             
-            vm.family_lists = tmp;  
+            vm.family_lists = tmp;
+
+            var tmp_summary = []; 
             if($stateParams.id) {
-                ContactService.RetrieveContactSummary($stateParams.id).then(function(response) {
-                    console.log(response);
+                var tmp_adult = [];
+                var tmp_child = [];
+                ContactService.RetrieveContactSummary($stateParams.id).then(function(summary) {
+
+                    console.log(summary);
+                    angular.forEach(summary, function(value, key) {
+                         if (value.Role == 'Adult') {
+                            tmp_adult.push(value);
+                         } else if (value.Role == 'Child') {
+                            tmp_child.push(value);
+                         }
+
+                    });
+                    vm.child_lists = tmp_child;
+                    vm.adult_lists = tmp_adult;
                 });
+
+
+                ContactService.RetrieveAddressInfo($stateParams.id).then(function(address) {
+                    console.log(address);
+                });
+
+                // console.log(vm.summary_info);
             }
         }
 

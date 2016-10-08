@@ -51,13 +51,21 @@
 																		<td>
 																			ADULT
 																		</td>
-																		<td></td>
+																		<td>
+																			<h5 ng-repeat="adult_list in vm.adult_lists">
+																				{{ adult_list.Title }} 
+																				{{ adult_list.FirstName }} 
+																				{{ adult_list.MiddleName }} 
+																				{{ adult_list.LastName }}
+	
+																			</h5>
+																		</td>
 																	</tr>
 																	<tr>
 																		<td>
 																			CHILDREN
 																		</td>
-																		<td></td>
+																		<td>{{ vm.child_lists.length }}</td>
 																	</tr>
 																	<tr>
 																		<td>

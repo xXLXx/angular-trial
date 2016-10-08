@@ -16,6 +16,8 @@
             RetrieveListMyContact: RetrieveListMyContact,
             AddConctactSet:   AddConctactSet,
             RetrieveContactSummary : RetrieveContactSummary,
+            RetrieveContactInfo:  RetrieveContactInfo,
+            RetrieveAddressInfo : RetrieveAddressInfo
         };
 
         return service;
@@ -77,7 +79,7 @@
                 url: LMR_API.URL + CONTACT.ADD_CONTACT,
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJOWkZTRyIsImNvdSI6Ik5ldyBaZWFsYW5kIiwiYXVkIjoiQnJva2VyIiwiZGV2IjoiQ1JNIiwidHlwIjoiQ1JNIiwidGltIjoiMjAxNi0xMC0wNlQwOToxMzo1NC4yOCIsImlkIjoiRjQzRUJCMjYtRTZCMC00MENFLUEyQzMtOEZBRDcwRjNBNjcxIn0.tyHDdpXBcAGGA1jVQXc7i8IfYUYSiz_eofSzT1kRMtY'
+                    'Authorization': 'Bearer ' + $rootScope.token,
                 },
                 data: JSON.stringify(data)
             }).success(function(response) {
@@ -100,6 +102,46 @@
                 $http({
                     method: 'GET',
                     url: LMR_API.URL + CONTACT.SUMMARY + '?familyId=' + familyid,
+                    headers: {
+                        'Authorization': 'Bearer ' + $rootScope.token,
+                    },
+                }).success(function(response) {
+                    d.resolve(response);
+                }).error(function(response) {
+                    d.reject(response);
+                });
+                return d.promise;
+
+            }
+        }
+
+
+        function RetrieveContactInfo (familyid) {
+            var d = $q.defer();
+            if (familyid) {
+                $http({
+                    method: 'GET',
+                    url: LMR_API.URL + CONTACT.INFO + '?familyId=' + familyid,
+                    headers: {
+                        'Authorization': 'Bearer ' + $rootScope.token,
+                    },
+                }).success(function(response) {
+                    d.resolve(response);
+                }).error(function(response) {
+                    d.reject(response);
+                });
+                return d.promise;
+
+            }
+        }
+
+
+        function RetrieveAddressInfo (familyid) {
+            var d = $q.defer();
+            if (familyid) {
+                $http({
+                    method: 'GET',
+                    url: LMR_API.URL + CONTACT.ADDRESS_INFO + '?familyId=' + familyid,
                     headers: {
                         'Authorization': 'Bearer ' + $rootScope.token,
                     },

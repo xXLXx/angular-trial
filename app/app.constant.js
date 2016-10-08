@@ -28,7 +28,10 @@
         	GET_ALL_FAMILY : 'contacts/FamilyListGet',
         	GET_PER_FAMILY : 'contacts/MyContactGet',
         	ADD_CONTACT    : 'contacts/ContactSet',
-            SUMMARY        : 'contacts/ClientInformGet'
+            SUMMARY        : 'contacts/ClientInformGet',
+            INFO           : 'contacts/ContactFamilyInfoGet',
+            LOAN_LIST      : 'contacts/LoanList',
+            ADDRESS_INFO   : 'contacts/FamilyAddressInformGet'
         }) 
         .constant('COOKIE', {
             AUTH_TOKEN: 'auth_token'
