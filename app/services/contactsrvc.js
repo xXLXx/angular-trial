@@ -96,19 +96,21 @@
 
         function RetrieveContactSummary(familyid) {
             var d = $q.defer();
-            $http({
-                method: 'GET',
-                url: LMR_API.URL + CONTACT.SUMMARY + '?familyId=' + familyid,
-                headers: {
-                    'Authorization': 'Bearer ' + $rootScope.token,
-                },
-            }).success(function(response) {
-                d.resolve(response);
-            }).error(function(response) {
-                d.reject(response);
-            });
+            if (familyid) {
+                $http({
+                    method: 'GET',
+                    url: LMR_API.URL + CONTACT.SUMMARY + '?familyId=' + familyid,
+                    headers: {
+                        'Authorization': 'Bearer ' + $rootScope.token,
+                    },
+                }).success(function(response) {
+                    d.resolve(response);
+                }).error(function(response) {
+                    d.reject(response);
+                });
+                return d.promise;
 
-            return d.promise;
+            }
         }
 
         

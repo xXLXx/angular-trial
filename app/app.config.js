@@ -56,7 +56,7 @@
 
         .state({
             name: 'contacts.index',
-            url: '/',
+            url: '',
             templateUrl: NG_PATH.CONTROLLER + 'contacts/view.html',
             controller: 'ContactController as vm',
             ncyBreadcrumb: {

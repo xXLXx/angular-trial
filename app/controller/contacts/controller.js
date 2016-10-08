@@ -34,7 +34,6 @@
     // ===================================== //
         
         function _init () {
-            console.log('test');
             var tmp = [];
             ContactService.RetrieveListFamilyData().then(function(response) {
                 vm.contact_count = response.TotalNumber;
@@ -42,17 +41,17 @@
                    tmp.push(value);
                 });
             });
-            console.log(tmp);
 
             vm.family_lists = tmp;    
 
-            ContactService.RetrieveListMyContact().then(function(response) {
-                console.log(response);
-            });
-
-            ContactService.RetrieveContactSummary($stateParams.id).then(function(response) {
-                console.log(response);
-            });
+            // ContactService.RetrieveListMyContact().then(function(response) {
+            //     console.log(response);
+            // });
+            if($stateParams.id) {
+                ContactService.RetrieveContactSummary($stateParams.id).then(function(response) {
+                    console.log(response);
+                });
+            }
         }
 
         function ShowAddModalContact () {
