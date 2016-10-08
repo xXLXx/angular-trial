@@ -1,0 +1,77 @@
+body,
+.main-content {
+    background: #ece8f0 !important;
+}
+
+.navbar .navbar-header .navbar-brand {
+	right: 0;
+}
+
+[data-toggle=radio]>.btn input[type=radio],
+[data-toggle=radio]>.btn-group>.btn input[type=radio] {
+    position: absolute;
+    clip: rect(0,0,0,0);
+    pointer-events: none;
+}
+
+.navbar .navbar-header .navbar-brand img {
+    display: block !important;
+    margin: 15px auto !important;
+}
+
+a.navbar-brand {
+	border-bottom: 2px rgba(255, 255, 255, 0.07);
+    border-bottom-style: inset;
+}
+
+.navbar .navbar-header,
+.sidebar-container nav {
+    background: #1b1439 !important;
+}
+
+.navbar .navbar-collapse {
+	background: #ffffff !important;
+}
+
+.navbar .navbar-collapse .navbar-left > li.sidebar-toggler-wrapper .btn > i {
+    color: #9b88aa !important;
+    font-size: 18px;
+}
+
+.navbar .navbar-collapse .navbar-left > li.sidebar-toggler-wrapper .btn,
+.navbar .navbar-collapse .navbar-left > li.sidebar-toggler-wrapper .btn:hover {
+     background-color: transparent !important; 
+}
+
+.navbar .navbar-collapse .navbar-left > li:before {
+	background: transparent !important;
+}
+
+.navbar .navbar-collapse .navbar-left > li.sidebar-toggler-wrapper .btn:active, 
+.navbar .navbar-collapse .navbar-left > li.sidebar-toggler-wrapper .btn.active, 
+.navbar .navbar-collapse .navbar-left > li.sidebar-toggler-wrapper .btn.active:focus, 
+.navbar .navbar-collapse .navbar-left > li.sidebar-toggler-wrapper .btn:active:focus, 
+.navbar .navbar-collapse .navbar-left > li.sidebar-toggler-wrapper .btn:active:hover, 
+.navbar .navbar-collapse .navbar-left > li.sidebar-toggler-wrapper .btn.dropdown-toggle:active:hover {
+	background: transparent !important;
+}
+
+#sidebar .sidebar-container {
+	background-color: #1b1439 !important;
+}
+
+
+.main-login {
+    background-color: #1b1439;
+    padding-top: 40px;
+}
+
+.main-login .logo {
+    margin-bottom: 40px;
+}
+
+.btn-violet {
+    background-color: #7266ba;
+    border-color: #7266ba;
+    color: #FFF;
+}

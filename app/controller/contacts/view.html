@@ -1,0 +1,110 @@
+<!-- <div class="container-fluid container-fullw">
+	<div class="row">
+		<div class="col-md-12">
+			<button ng-click="vm.ShowAddModalContact()" type="button" class="btn btn-primary btn-lg pull-right"
+			data-toggle="modal" data-target="#modal-add-contact">
+				<i class="ti-plus"></i>&nbsp;&nbsp;Add Contact
+			</button>
+		</div>
+	</div>
+	<br/>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-white">
+				<div class="panel-body">
+					<table class="table table-striped table-bordered table-hover table-full-width" id="contact">
+						<thead>
+							<tr>
+								<th>Family Name</th>
+								<th class="hidden-xs">City</th>
+								<th>Contact #</th>
+								<th class="hidden-xs">Adviser</th>
+								<th>Client Type</th>
+								<th><input type="text"></input></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-click="vm.ShowModalClientInfo()" data-toggle="modal" data-target="#modal-client-info"
+							ng-repeat="family_list in vm.family_lists">
+								<td>{{family_list.FamilyFullName}}</td>
+								<td>{{family_list.City}}</td>
+								<td>{{family_list.Contact}}</td>
+								<td>{{family_list.Adviser}}</td>
+								<td>{{family_list.ClientType}}</td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> -->
+<div class="container-fluid container-fullw">
+    <div class="row">
+
+        <div class="col-md-12">	
+			<div class="row">
+	        	<div class="col-md-2">
+	        		<h2>My Contacts</h2> 
+	        	</div>
+	        	<div class="col-md-4">
+	        		<span>{{ vm.contact_count }} Total Contacts | Last Updated: <b><i>Yesterday</i></b></span>
+	        	</div>
+				<div class="col-md-6">
+					<div class="pull-right">
+						<button ng-click="vm.ShowAddModalContact()" type="button" class="btn btn-primary btn-lg"
+						data-toggle="modal" data-target="#modal-add-contact">
+							<i class="ti-plus"></i>&nbsp;&nbsp;Add Contact
+						</button>
+						<button type="button" class="btn btn-primary btn-lg">
+							Merge Contact
+						</button>
+					</div>
+				</div>
+        	</div>
+        	<br/>
+            <div class="panel panel-white">
+                <div class="panel-body"> 
+                	<div>
+                        <table class="table table-striped">
+                        	<thead>
+								<tr>
+									<th>
+										<div class="checkbox clip-check check-primary">
+											<input type="checkbox" id="checkbox6" value="1">
+											<label for="checkbox6"></label>
+										</div>
+									</th>
+									<th>Family Name</th>
+									<th class="hidden-xs">City</th>
+									<th>Contact #</th>
+									<th class="hidden-xs">Adviser</th>
+									<th>Client Type</th>
+									<th><input type="text"></input></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ui-sref="contacts.summary({id: family_list.FamilyID})"
+								ng-repeat="family_list in vm.family_lists">
+									<td>
+										<div class="checkbox clip-check check-primary">
+											<input type="checkbox" id="checkbox6" value="1">
+											<label for="checkbox6"></label>
+										</div>
+									</td>
+									<td>{{family_list.FamilyFullName}}</td>
+									<td>{{family_list.City}}</td>
+									<td>{{family_list.Contact}}</td>
+									<td>{{family_list.Adviser}}</td>
+									<td>{{family_list.ClientType}}</td>
+									<td><i class="fa fa-pencil-square-o"></i></td>
+								</tr>
+							</tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
