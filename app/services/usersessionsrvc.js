@@ -54,7 +54,7 @@
         function Set (token) {
             $rootScope.token = token;
             $cookieStore.put(COOKIE.AUTH_TOKEN, token);
-
+            console.log(token);
             $timeout(function() {
                 $location.path(APP_PATH.BASE_URL);            
             }, 800);

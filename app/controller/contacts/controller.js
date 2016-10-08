@@ -15,9 +15,11 @@
         var vm = this;
             vm.family_lists = [];
             vm.contact_count = 0;
-            vm.summary_info = [];
             vm.adult_lists = [];
             vm.child_lists = [];
+            vm.loan_lists = [];
+            vm.tag_lists = [];
+            vm.note_lists = [];
     // ===================================== //
     //          FUNCTION REFERENCE           //
     // ===================================== //
@@ -54,31 +56,54 @@
             
             vm.family_lists = tmp;
 
-            var tmp_summary = []; 
             if($stateParams.id) {
-                var tmp_adult = [];
-                var tmp_child = [];
-                ContactService.RetrieveContactSummary($stateParams.id).then(function(summary) {
+                var tmp_adults = [], 
+                    tmp_childs = [], 
+                    tmp_loans = [], 
+                    tmp_tags = [],
+                    tmp_notes = [];
 
-                    console.log(summary);
+
+                ContactService.RetrieveContactSummary($stateParams.id).then(function(summary) {
                     angular.forEach(summary, function(value, key) {
                          if (value.Role == 'Adult') {
-                            tmp_adult.push(value);
+                            tmp_adults.push(value);
                          } else if (value.Role == 'Child') {
-                            tmp_child.push(value);
+                            tmp_childs.push(value);
                          }
 
                     });
-                    vm.child_lists = tmp_child;
-                    vm.adult_lists = tmp_adult;
+                    vm.child_lists = tmp_childs;
+                    vm.adult_lists = tmp_adults;
                 });
 
+                // ContactService.RetrieveAddressInfo($stateParams.id).then(function(address) {
+                //     // console.log(address);
+                // });
 
-                ContactService.RetrieveAddressInfo($stateParams.id).then(function(address) {
-                    console.log(address);
+                ContactService.RetrieveLoanList($stateParams.id).then(function(loans) {
+                    angular.forEach(loans, function(value, key) {
+                         tmp_loans.push(value);
+                    });
+                    vm.loan_lists = tmp_loans;
                 });
 
-                // console.log(vm.summary_info);
+                ContactService.RetrieveTaggedList($stateParams.id).then(function(tags) {
+                    angular.forEach(tags, function(value, key) {
+                         tmp_tags.push(value);
+                    });
+                    vm.tag_lists = tmp_tags;
+                    console.log(vm.tag_lists);
+                });
+
+                ContactService.RetrieveNoteList($stateParams.id).then(function(notes) {
+                    angular.forEach(notes, function(value, key) {
+                         tmp_notes.push(value);
+                    });
+                    vm.note_lists = tmp_notes;
+                    console.log(vm.note_lists);
+                });
+
             }
         }
 

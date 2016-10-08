@@ -16,8 +16,10 @@
             RetrieveListMyContact: RetrieveListMyContact,
             AddConctactSet:   AddConctactSet,
             RetrieveContactSummary : RetrieveContactSummary,
-            RetrieveContactInfo:  RetrieveContactInfo,
-            RetrieveAddressInfo : RetrieveAddressInfo
+            RetrieveLoanList:  RetrieveLoanList,
+            RetrieveAddressInfo : RetrieveAddressInfo,
+            RetrieveTaggedList : RetrieveTaggedList,
+            RetrieveNoteList  : RetrieveNoteList
         };
 
         return service;
@@ -116,12 +118,12 @@
         }
 
 
-        function RetrieveContactInfo (familyid) {
+        function RetrieveLoanList (familyid) {
             var d = $q.defer();
             if (familyid) {
                 $http({
                     method: 'GET',
-                    url: LMR_API.URL + CONTACT.INFO + '?familyId=' + familyid,
+                    url: LMR_API.URL + CONTACT.LOAN_LIST + '?familyId=' + familyid,
                     headers: {
                         'Authorization': 'Bearer ' + $rootScope.token,
                     },
@@ -142,6 +144,45 @@
                 $http({
                     method: 'GET',
                     url: LMR_API.URL + CONTACT.ADDRESS_INFO + '?familyId=' + familyid,
+                    headers: {
+                        'Authorization': 'Bearer ' + $rootScope.token,
+                    },
+                }).success(function(response) {
+                    d.resolve(response);
+                }).error(function(response) {
+                    d.reject(response);
+                });
+                return d.promise;
+
+            }
+        }
+
+
+        function RetrieveTaggedList (familyid) {
+            var d = $q.defer();
+            if (familyid) {
+                $http({
+                    method: 'GET',
+                    url: LMR_API.URL + CONTACT.TAGGED_LIST + '?familyId=' + familyid,
+                    headers: {
+                        'Authorization': 'Bearer ' + $rootScope.token,
+                    },
+                }).success(function(response) {
+                    d.resolve(response);
+                }).error(function(response) {
+                    d.reject(response);
+                });
+                return d.promise;
+
+            }
+        }
+
+        function RetrieveNoteList (familyid) {
+            var d = $q.defer();
+            if (familyid) {
+                $http({
+                    method: 'GET',
+                    url: LMR_API.URL + CONTACT.NOTE_LIST + '?familyId=' + familyid + '&count=*',
                     headers: {
                         'Authorization': 'Bearer ' + $rootScope.token,
                     },

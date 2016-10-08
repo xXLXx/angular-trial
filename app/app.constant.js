@@ -31,7 +31,9 @@
             SUMMARY        : 'contacts/ClientInformGet',
             INFO           : 'contacts/ContactFamilyInfoGet',
             LOAN_LIST      : 'contacts/LoanList',
-            ADDRESS_INFO   : 'contacts/FamilyAddressInformGet'
+            ADDRESS_INFO   : 'contacts/FamilyAddressInformGet',
+            TAGGED_LIST    : 'contacts/TaggedList',
+            NOTE_LIST      : 'contacts/NoteList'
         }) 
         .constant('COOKIE', {
             AUTH_TOKEN: 'auth_token'
