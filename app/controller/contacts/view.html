@@ -86,7 +86,7 @@
 							</thead>
 							<tbody>
 								<tr ui-sref="contacts.summary({id: family_list.FamilyID})"
-								ng-repeat="family_list in vm.family_lists">
+								ng-repeat="family_list in vm.family_lists" ng-click="vm.ShowInfo(family_list)">
 									<td>
 										<div class="checkbox clip-check check-primary">
 											<input type="checkbox" id="checkbox6" value="1">

@@ -25,6 +25,7 @@
     // ===================================== //   
         vm.ShowAddModalContact = ShowAddModalContact;
         vm.ShowModalClientInfo = ShowModalClientInfo;
+        vm.ShowInfo = ShowInfo;
 
         $rootScope.$on('MODAL_ADD_CONTACT_OK', _OnAddContactModalOk);
         
@@ -38,15 +39,16 @@
             ContactService.RetrieveListFamilyData().then(function(response) {
                 vm.contact_count = response.TotalNumber;
                 angular.forEach(response.FamilyList, function(value, key) {
+                    if($stateParams.id) {
+                        if (value.FamilyID == $stateParams.id) {
+                             $rootScope.FamilyName = value.FamilyFullName;
+                        }
+                    } 
                    tmp.push(value);
                 });
             });
-
-            vm.family_lists = tmp;    
-
-            // ContactService.RetrieveListMyContact().then(function(response) {
-            //     console.log(response);
-            // });
+            
+            vm.family_lists = tmp;  
             if($stateParams.id) {
                 ContactService.RetrieveContactSummary($stateParams.id).then(function(response) {
                     console.log(response);
@@ -81,7 +83,9 @@
             ContactService.AddConctactSet(data).then(function(response) {});
         }
 
-      
+        function ShowInfo (family_info) {
+            $rootScope.FamilyName = family_info.FamilyFullName;
+        }
         
 
         _init();

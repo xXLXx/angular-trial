@@ -70,7 +70,7 @@
             templateUrl: NG_PATH.CONTROLLER + 'contacts/summary.html',
             controller: 'ContactController as vm',
              ncyBreadcrumb: {
-                label: 'fafa',
+                label: '{{ FamilyName }}',
                 parent: 'contacts.index'
             }
         });
