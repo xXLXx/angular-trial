@@ -31,8 +31,8 @@
     * Modal ID for css
     **/
     $rootScope.id_config = {
-        'addContact'            : 'modal-add-contact',
-        'clientInfo'            : 'modal-client-info'
+        'addContact'      : 'modal-add-contact',
+        'addRelationship' : 'modal-add-relationship'
     };
     
      

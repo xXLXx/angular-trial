@@ -75,3 +75,8 @@ a.navbar-brand {
     border-color: #7266ba;
     color: #FFF;
 }
+
+.navbar-form.main-search input#search {
+    background-color: #FFFFFF !important;
+    border: 1px solid #c8c7cc !important;
+}

@@ -2,10 +2,7 @@
 	<div class="col-sm-4">
 		<div class="panel panel-white">
 			<div class="panel-heading border-light">
-				<h4 class="panel-title">Header <span class="text-bold">Border</span></h4>
-				<div class="panel-tools" >
-					<a data-original-title="Refresh" data-toggle="tooltip" data-placement="top" class="btn btn-transparent btn-sm panel-refresh" href="#"><i class="fa fa-circle-o"></i></a>
-				</div>
+				<h4 class="panel-title">Personal Information</h4>
 			</div>
 			<div class="panel-body">
 				<form role="form" class="form-horizontal">
@@ -93,42 +90,94 @@
 	<div class="col-sm-4">
 		<div class="panel panel-white">
 			<div class="panel-heading border-light">
-				<h4 class="panel-title">Header <span class="text-bold">Border</span></h4>
-				<div class="panel-tools" >
-					<a data-original-title="Refresh" data-toggle="tooltip" data-placement="top" class="btn btn-transparent btn-sm panel-refresh" href="#"><i class="fa fa-circle-o"></i></a>
-				</div>
+				<h4 class="panel-title">Additional Information</h4>
 			</div>
 			<div class="panel-body">
-				<p>
-					Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.
-				</p>
-				<p>
-					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-				</p>
-				<p>
-					Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.
-				</p>
+				<form role="form" class="form-horizontal">
+					<div class="form-group">
+						<label class="col-sm-4 control-label"> HOME PHONE </label>
+						<div class="col-sm-8">
+							<input type="text" placeholder="Title" class="form-control" ng-model="contact.title">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-4 control-label"> BUSINESS PHONE </label>
+						<div class="col-sm-8">
+							<input type="text" placeholder="First Name" class="form-control" ng-model="contact.first_name">
+						</div>
+					</div><div class="form-group">
+						<label class="col-sm-4 control-label">MOBILE PHONE </label>
+						<div class="col-sm-8">
+							<input type="text" placeholder="Middle Name" class="form-control" ng-model="contact.middle_name">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-4 control-label"> BEST TIME TO CALL </label>
+						<div class="col-sm-8">
+							<div class="col-md-5">
+								<input type="text" class="form-control" ng-model="contact.last_name">
+							</div>
+							<div class="col-md-7">
+								<select class="form-control">
+									<option>AM</option>
+									<option>PM</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-4 control-label"> EMAIL ADDRESS </label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" ng-model="contact.preferred_name">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-4 control-label"> SMOKER </label>
+						<div class="col-sm-8">
+							<div class="btn-group" data-toggle="radio">
+								<label class="btn btn-primary" ng-class="{'active': contact.gender == 'Male'}">
+									<input type="radio" name="options" value="Male" ng-model="contact.gender">
+									Yes 
+								</label>
+								<label class="btn btn-primary" ng-class="{'active': contact.gender == 'Female'}">
+									<input type="radio" name="options" value="Female" ng-model="contact.gender">
+									No
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-4 control-label"> OCCUPATION </label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" ng-model="contact.birthday">
+							<div class="col-md-4">
+								OR
+							</div>
+							<div class="col-md-8">
+								<select class="form-control">
+									<option>SELECT CLASS</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-4 control-label"> EMPLOYER/COMPANY </label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" ng-model="contact.birthday">
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
 	<div class="col-sm-4">
 		<div class="panel panel-white">
 			<div class="panel-heading border-light">
-				<h4 class="panel-title">Header <span class="text-bold">Border</span></h4>
-				<div class="panel-tools" >
-					<a data-original-title="Refresh" data-toggle="tooltip" data-placement="top" class="btn btn-transparent btn-sm panel-refresh" href="#"><i class="fa fa-circle-o"></i></a>
-				</div>
+				<h4 class="panel-title">Client Notes</h4>
 			</div>
 			<div class="panel-body">
-				<p>
-					Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.
-				</p>
-				<p>
-					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-				</p>
-				<p>
-					Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.
-				</p>
+				<textarea class="form-control">
+				</textarea>
 			</div>
 		</div>
 	</div>

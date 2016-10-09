@@ -35,9 +35,10 @@
             UPDATE_CONTACT : 'contacts/ContactFamilyInfoSet'       
         })
         .constant('CLIENT', {
-            RELATIONSHIP: 'contacts/RelationshipGet',
-            INFO        : 'contacts/ContactFamilyInfoGet',
-            ADVISER     : 'GetBrokerBasicinfo'
+            RELATIONSHIP    : 'contacts/RelationshipGet',
+            INFO            : 'contacts/ContactFamilyInfoGet',
+            ADVISER         : 'GetBrokerBasicinfo',
+            ADD_RELATIONSHIP: 'contacts/RelationshipSet'
         })
         .constant('COOKIE', {
             AUTH_TOKEN: 'auth_token'

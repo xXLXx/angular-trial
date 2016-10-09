@@ -26,12 +26,10 @@
 	<link rel="stylesheet" href="assets/css/styles.css">
 	<link rel="stylesheet" href="assets/css/plugins.css">
 	<link rel="stylesheet" href="assets/css/themes/lyt2-theme-1.css" id="skin_color">
-	<!-- end: Packet CSS -->
-	<!-- Favicon -->
-	<link rel="stylesheet" href="bower_components/ng-table/dist/ng-table.min.css">
+
+	<link rel="shortcut icon" href="favicon.ico" />
 
 	<link rel="stylesheet" href="assets/css/custom.css">
-	<link rel="shortcut icon" href="favicon.ico" />
 </head>
 
 <body ng-class="{'login' : $state.current.name === 'login'}"> 
@@ -48,6 +46,7 @@
 
 			<!-- Modals -->
 			<div ng-controller="ModalController as vm">
+
 				<modal-template 
                     modal-id="{{$root.id_config.addContact}}" 
                     modal-body="modal/template/add-contact.html" 
@@ -62,16 +61,17 @@
                     contact=vm.contact>
                 </modal-template>
 
-                 <modal-template 
-                    modal-id="{{$root.id_config.clientInfo}}" 
-                    modal-body="modal/template/client-info.html" 
-                    modal-title="{{vm.current_client}}"
-                    modal-size="modal-lg"
+                <modal-template 
+                    modal-id="{{$root.id_config.addRelationship}}" 
+                    modal-body="modal/template/add-relationship.html" 
+                    modal-title="Add Relationship"
+                    modal-btn-ok="Save Contact and Close"
+                    modal-size="modal-md"
                     show-up-btn-ok="false"
-                    show-down-btn-ok="false"
+                    show-down-btn-ok="true"
                     show-btn-exit="true"
                     show-btn-cancel="false"
-                    show-footer="false">
+                    show-footer="true">
                 </modal-template>
 			</div>
 

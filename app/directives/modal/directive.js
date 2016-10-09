@@ -47,7 +47,7 @@
                                         '<ng-include src="GetTemplateUrl()"/>' +
                                     '</div>'+
                                     '<div class="modal-footer" ng-show="showFooter">' +
-                                        '<div class="row">' +
+                                        '<div class="row text-center">' +
                                             '<button class="btn btn-primary" ng-click="OkModal()" ng-show="showDownBtnOk">{{btnOk}}</button>&nbsp; &nbsp;'+
                                             '<button class="btn btn-primary btn-o modal-dismiss" ng-click="CloseModal()" ng-show="showBtnCancel">Cancel</button>' +
                                         '</div>'+
@@ -93,12 +93,9 @@
                     $rootScope.$on('$stateShowAddContact', function() {
                         $('#' + $rootScope.id_config.addContact).show();
                     });
-                } else if (scope.id === $rootScope.id_config.clientInfo) {
-                    $rootScope.$on('$stateShowShowClientInfo', function(e, family_info_arr) {
-                        console.log(family_info_arr);
-                        scope.title = family_info_arr.FamilyFullName;
-                        scope.family_info = family_info_arr;
-                        $('#' + $rootScope.id_config.clientInfo).show();
+                } else if (scope.id === $rootScope.id_config.addRelationship) {
+                    $rootScope.$on('$stateShowAddRelationship', function() {
+                        $('#' + $rootScope.id_config.addRelationship).show();
                     });
                 }
             }
@@ -110,8 +107,10 @@
         
 
             function OkModal () {
-               if (scope.id === $rootScope.id_config.addContact) {
+                if (scope.id === $rootScope.id_config.addContact) {
                     $rootScope.$broadcast('MODAL_ADD_CONTACT_OK', scope.id, scope.contact);
+                } else if (scope.id === $rootScope.id_config.addRelationship) {
+                    $rootScope.$broadcast('MODAL_ADD_RELATIONSHIP_OK', scope.id, scope.relationship);
                 }
             }
 

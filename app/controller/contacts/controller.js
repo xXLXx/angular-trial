@@ -34,11 +34,12 @@
     //    MODAL(S) FUNCTION REFERENCE        //
     // ===================================== //   
         vm.ShowAddModalContact = ShowAddModalContact;
-        vm.ShowModalClientInfo = ShowModalClientInfo;
+        vm.ShowModalAddRelationship = ShowModalAddRelationship;
         vm.ShowInfo = ShowInfo;
         vm.OpenTab = OpenTab;
 
         $rootScope.$on('MODAL_ADD_CONTACT_OK', _OnAddContactModalOk);
+        $rootScope.$on('MODAL_ADD_RELATIONSHIP_OK', _OnAddRelationshipModalOk);
         
 
     // ===================================== //
@@ -143,10 +144,10 @@
                         } else if (phone.Type == 'Work') {
                             value.Work = phone.Number;
                         }
-                        tmp_relationship.push(value);
                     });
+                    tmp_relationship.push(value);
+                    vm.relationship_lists = tmp_relationship;
                 });
-                vm.relationship_lists = tmp_relationship;
             });
 
             ContactService.RetrieveContactFamilyInfo(familyid).then(function(contactinfo) {
@@ -170,8 +171,8 @@
             $rootScope.$broadcast('$stateShowAddContact');
         }
 
-        function ShowModalClientInfo (family_info) {
-            $rootScope.$broadcast('$stateShowShowClientInfo', family_info);
+        function ShowModalAddRelationship () {
+            $rootScope.$broadcast('$stateShowAddRelationship');
         }
 
         function _OnAddContactModalOk (e, id, contact) {
@@ -191,6 +192,30 @@
             }];
 
             ContactService.AddConctactSet(data).then(function(response) {});
+        }
+
+        function _OnAddRelationshipModalOk (e, id, relationship) {
+            var data = {
+                  "FamilyID": $stateParams.id,
+                  "orgs": [
+                    {
+                      "Name": "string",
+                      "Firm": "string",
+                      "OrganisationCategory": "string",
+                      "OrganisationType": "string",
+                      "OrganisationTypeOther": "string",
+                      "Description": "string",
+                      "IsMainOrganisation": true,
+                      "Phone": [],
+                      "Address": [],
+                      "Email": [],
+                      "Notes": "string",
+                      "PersonId": "string"
+                    }
+                  ]
+                };
+
+            ContactService.AddRelationshipSet(data).then(function(response) {});
         }
 
         function ShowInfo (family_info) {

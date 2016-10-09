@@ -22,7 +22,8 @@
             RetrieveClientList : RetrieveClientList,
             RetrieveRelationshipList : RetrieveRelationshipList,
             RetrieveContactFamilyInfo : RetrieveContactFamilyInfo,
-            RetrieveAdviserName : RetrieveAdviserName
+            RetrieveAdviserName : RetrieveAdviserName,
+            AddRelationshipSet : AddRelationshipSet
         };
 
         return service;
@@ -220,11 +221,12 @@
             if (familyid) {
                 $http({
                     method: 'GET',
-                    url: LMR_API.URL + CLIENT.RELATIONSHIP + '?familyId=' + familyid,
+                    url: LMR_API.URL + CLIENT.RELATIONSHIP + '?familyID=' + familyid,
                     headers: {
                         'Authorization': 'Bearer ' + $rootScope.token,
                     },
                 }).success(function(response) {
+                    console.log(response);
                     d.resolve(response);
                 }).error(function(response) {
                      if (response == "Your Session has expired") {
@@ -257,23 +259,49 @@
             }
         }
 
-         function RetrieveAdviserName (adviserID) {
+         function RetrieveAdviserName () {
+            var d = $q.defer();
+            if ($rootScope.token) {
+                $http({
+                    method: 'GET',
+                    url: LMR_API.URL + CLIENT.ADVISER,
+                    headers: {
+                        'Authorization': 'Bearer ' + $rootScope.token,
+                    },
+                }).success(function(response) {
+                    d.resolve(response);
+                }).error(function(response) {
+                     if (response == "Your Session has expired") {
+                        UserSession.Logout();
+                    }
+                });
+                return d.promise;
+            }
+        }
+
+
+        function AddRelationshipSet(data) {
             var d = $q.defer();
             $http({
-                method: 'GET',
-                url: LMR_API.URL + CLIENT.ADVISER,
+                method: 'POST',
+                url: LMR_API.URL + CLIENT.ADD_RELATIONSHIP,
                 headers: {
                     'Authorization': 'Bearer ' + $rootScope.token,
+                    'Content-Type': 'application/json',
+                    'Accept'      :  'application/json' 
                 },
+                data: JSON.stringify(data)
             }).success(function(response) {
                 d.resolve(response);
             }).error(function(response) {
-                 if (response == "Your Session has expired") {
+                if (response == "Your Session has expired") {
                     UserSession.Logout();
                 }
             });
+
             return d.promise;
         }
+
 
     }
 
