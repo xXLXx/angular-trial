@@ -209,6 +209,7 @@ var clipSetting = {}, appSetting = {};
 
 		}
 	};
+	window.perfectScrollbarHandler = perfectScrollbarHandler;
 	//toggle class
 	var toggleClassOnElement = function() {
 		var toggleAttribute = $('*[data-toggle-class]');

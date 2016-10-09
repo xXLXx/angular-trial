@@ -52,6 +52,7 @@
         
         function _init () {
             var tmp = [];
+
             ContactService.RetrieveListFamilyData().then(function(response) {
                 vm.contact_count = response.TotalNumber;
                 angular.forEach(response.FamilyList, function(value, key) {
@@ -64,6 +65,14 @@
                 });
 
                 vm.family_lists = tmp;
+
+                setTimeout(function () {
+                    $('.contacts-main table tbody tr:first-child td').each(function (idx) {
+                        $('.contacts-main table th').eq(idx).width($(this).width() + 'px');
+                    });
+
+                    window.perfectScrollbarHandler();
+                }, 1000);
             });
             $scope.$watch($stateParams.id, function () {
                 $('.breadcrumb li:first-child a').prepend('<i class="fa fa-phone-square"></i>')

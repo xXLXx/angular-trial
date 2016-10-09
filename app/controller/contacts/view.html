@@ -74,7 +74,7 @@
                         <table class="table table-striped">
                         	<thead>
 								<tr>
-									<th width="1px">
+									<th>
 										<div class="checkbox clip-check check-primary">
 											<input type="checkbox" id="checkbox6" value="1">
 											<label for="checkbox6"></label>
@@ -88,9 +88,9 @@
 									<th><input type="text" class="form-control" placeholder="Search contacts"></input></th>
 								</tr>
 							</thead>
-							<tbody>
+							<tbody class="perfect-scrollbar">
 								<tr ui-sref="contacts.summary({id: family_list.FamilyID})"
-								ng-repeat="family_list in vm.family_lists" ng-click="vm.ShowInfo(family_list)">
+								ng-repeat="family_list in vm.family_lists track by $index" ng-click="vm.ShowInfo(family_list)">
 									<td>
 										<div class="checkbox clip-check check-primary" ng-click="vm.SelectContact($event)">
 											<input type="checkbox" id="checkbox-family{{$index}}" value="1">

@@ -1,3 +1,33 @@
+th,
+td {
+    border-bottom-width: 2px !important;
+}
+
+tr:nth-child(odd) > td:first-child  {
+    border-left: 2px solid #e2e2e4;
+}
+
+tr:nth-child(odd) > td:last-child {
+    border-right: 2px solid #e2e2e4;
+}
+
+tr:nth-child(even) > td:first-child {
+    border-left: 2px solid transparent;
+}
+
+tr:nth-child(even) > td:last-child {
+    border-right: 2px solid transparent;
+}
+
+tr > td {
+    padding-bottom: 2px !important;
+    padding-top: 2px !important;
+}
+
+tbody > tr:hover {
+    background-color: #ffffe7 !important;
+}
+
 .page-title {
     display: inline-block;
     margin-right: 30px;
@@ -78,12 +108,12 @@
 .letter-scroll-table li:hover:before,
 .letter-scroll-table li.active:before {
     content: '';
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
     position: absolute;
     border-radius: 50%;
     background: #38cbce;
-    left: 14px;
+    left: 13px;
 }
 
 .letter-scroll-table li:hover:before {
@@ -145,32 +175,49 @@
     margin-left: 10px;
 }
 
-th,
-td {
-    border-bottom-width: 2px !important;
+.contacts-main tbody,
+.contacts-main thead,
+.contacts-main tr {
+    display: block;
 }
 
-tr:nth-child(odd) > td:first-child  {
-    border-left: 2px solid #e2e2e4;
+.contacts-main tr {
+    width: 100%;
 }
 
-tr:nth-child(odd) > td:last-child {
-    border-right: 2px solid #e2e2e4;
+.contacts-main tbody {
+    height: 580px;
+    overflow: auto;
+    position: relative;
+    padding-right: 20px;
 }
 
-tr:nth-child(even) > td:first-child {
-    border-left: 2px solid transparent;
+.contacts-main th,
+.contacts-main td {
+    width: 12.5%;
 }
 
-tr:nth-child(even) > td:last-child {
-    border-right: 2px solid transparent;
+.contacts-main th:nth-child(2),
+.contacts-main td:nth-child(2) {
+    width: 20%;
 }
 
-tr > td {
-    padding-bottom: 2px !important;
-    padding-top: 2px !important;
+.contacts-main th:last-child,
+.contacts-main td:last-child {
+    width: 20%;
 }
 
-tbody > tr:hover {
-    background-color: #ffffe7 !important;
+.contacts-main th:first-child,
+.contacts-main td:first-child {
+    width: 5%;
 }
+
+.contacts-main .ps-scrollbar-y-rail {
+    background-color: #f4f2f8 !important;
+}
+
+.contacts-main .ps-container:hover > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y,
+.contacts-main .ps-container > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+    background-color: #d1c4d7 !important;
+}
+
