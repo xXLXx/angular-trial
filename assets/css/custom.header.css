@@ -1,0 +1,194 @@
+body,
+.main-content {
+    background: #ece8f0 !important;
+}
+
+.navbar .navbar-header .navbar-brand {
+	right: 0;
+}
+
+[data-toggle=radio]>.btn input[type=radio],
+[data-toggle=radio]>.btn-group>.btn input[type=radio] {
+    position: absolute;
+    clip: rect(0,0,0,0);
+    pointer-events: none;
+}
+
+.navbar .navbar-header .navbar-brand img {
+    display: block !important;
+    margin: 15px auto !important;
+}
+
+a.navbar-brand {
+	border-bottom: 2px rgba(255, 255, 255, 0.07);
+    border-bottom-style: inset;
+}
+
+.navbar .navbar-header,
+.sidebar-container nav {
+    background: #1b1439 !important;
+}
+
+.navbar .navbar-collapse {
+	background: #ffffff !important;
+}
+
+.navbar .navbar-collapse .navbar-left > li.sidebar-toggler-wrapper .btn > i {
+    color: #9b88aa !important;
+    font-size: 18px;
+}
+
+.navbar .navbar-collapse .navbar-left > li.sidebar-toggler-wrapper .btn,
+.navbar .navbar-collapse .navbar-left > li.sidebar-toggler-wrapper .btn:hover {
+     background-color: transparent !important; 
+}
+
+.navbar .navbar-collapse .navbar-left > li:before {
+	background: transparent !important;
+}
+
+.navbar .navbar-collapse .navbar-left > li.sidebar-toggler-wrapper .btn:active, 
+.navbar .navbar-collapse .navbar-left > li.sidebar-toggler-wrapper .btn.active, 
+.navbar .navbar-collapse .navbar-left > li.sidebar-toggler-wrapper .btn.active:focus, 
+.navbar .navbar-collapse .navbar-left > li.sidebar-toggler-wrapper .btn:active:focus, 
+.navbar .navbar-collapse .navbar-left > li.sidebar-toggler-wrapper .btn:active:hover, 
+.navbar .navbar-collapse .navbar-left > li.sidebar-toggler-wrapper .btn.dropdown-toggle:active:hover {
+	background: transparent !important;
+}
+
+#sidebar .sidebar-container {
+	background-color: #1b1439 !important;
+}
+
+
+.main-login {
+    background-color: #1b1439;
+    padding-top: 40px;
+}
+
+.main-login .logo {
+    margin-bottom: 40px;
+}
+
+.btn-violet {
+    background-color: #7266ba;
+    border-color: #7266ba;
+    color: #FFF;
+}
+
+.navbar-form.main-search input#search {
+    background-color: #FFFFFF !important;
+    border: 1px solid #c8c7cc !important;
+    height: 33px !important;
+    padding-right: 50px !important;
+}
+.navbar-form.main-search input[type="text"] {
+    padding: 4px 10px !important;
+}
+
+.navbar-form.main-search div.form-group {
+    padding-top: 15px !important;
+    padding-bottom: 12px !important;
+}
+
+.navbar-collapse .launch {
+    padding-top: 15px;
+    padding-bottom: 12px;
+}
+
+.navbar-collapse .launch .btn:hover {
+    color: #FFF !important;
+}
+
+.btn-dark-violet {
+    background-color: #544890;
+    border-color: #544890;
+    color: #FFF;
+}
+
+.btn-dark-bluegreen {
+    background-color: #3baebb;
+    border-color: #3baebb;
+    color: #FFF;
+}
+
+
+ul.nav .sidebar-toggler-wrapper {
+    padding-left: 20px !important;
+    padding-right: 0px !important;
+}
+
+ul.navbar-right {
+    margin: 0 0px 0 0 !important;
+}
+
+ul.navbar-right ul li {
+    padding-right: 20px !important;
+}
+
+.navbar-collapse ul.nav i.fa.fa-search {
+    color: #9b88aa;
+    margin-top: 15px;
+}
+
+.navbar .navbar-left > li:not(.sidebar-toggler-wrapper) {
+    padding: 0px 10px 0px 0px !important;
+}
+
+.navbar .navbar-right > li {
+    padding: 0px 0px 0px 20px !important;
+}
+.navbar .navbar-right > li:last-child {
+    padding: 0px 20px 0px 20px !important;
+}
+
+.navbar .navbar-collapse .navbar-right > li:before,
+.navbar .navbar-collapse .navbar-left > li:before {
+    background: transparent !important;
+     width: 0px !important;
+}
+
+.navbar .navbar-right > li > a {
+    padding: 0px 0px 0px 0px !important;
+}
+
+.navbar .navbar-right > li.settings-icon {
+    padding: 0px 0px 0px 25px !important;
+}
+
+.navbar .navbar-right > li.dropdown {
+    padding: 0px 14px 0px 14px !important;
+}
+
+.navbar .navbar-collapse .navbar-right > li.dropdown:before {
+    width: 2px !important;
+    height: 16px !important;
+    background-color: #9b88aa !important;
+    top: 20px !important;
+}
+
+.welcome-name a {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+}
+
+.welcome-name .login-name {
+    color: #3baebb;
+}
+
+@media (max-width: 991px) {
+    .navbar .navbar-collapse .navbar-right > li > a {
+        color: rgba(51, 51, 51, 0.7) !important;
+    }
+}
+
+
+.nav.navbar-right .badge.notification {
+    display: block !important;
+    background-color: rgb(235, 139, 139) !important;
+    height: 10px !important;
+    min-width: 10px !important;
+    top: 16px !important;
+    right: -7px !important;
+}
+
