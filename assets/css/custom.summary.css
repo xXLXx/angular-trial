@@ -1,0 +1,56 @@
+#summary-row .panel-tabs, .tabbable {
+	background-color: transparent;
+}
+
+#summary-row .summary-header {
+	margin-bottom: 20px;
+}
+
+#summary-row .summary-menus {
+    height: 100%;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+#summary-row .summary-header h2 {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+
+#summary-row .summary-header h2 {
+	margin-bottom: 0px !important;
+}
+
+#summary-row .tabbable ul.nav-tabs li  a {
+	font-size: 12px !important;
+	color: #705e7b;
+	font-weight: bolder;
+}
+
+#summary-row .tabbable ul.nav-tabs > li.active > a, 
+#summary-row .tabbable ul.nav-tabs > li.active > a:focus, 
+#summary-row .tabbable ul.nav-tabs > li.active > a:hover {
+    background-color: #fbfafc !important;
+    border: 2px solid #f4f2f5 !important;
+    box-shadow: none !important;
+}
+
+#summary-row .alert {
+	border-radius: 0px !important;
+}
+
+#summary-row #summary-details a {
+	font-size: 11px;
+}
+
+#summary-row #summary-details h5  {
+	font-size: 15px;
+	vertical-align: middle;
+	margin-bottom: 0px !important;
+}
+
+#summary-row #summary-details .client-details .panel-body {
+	padding-top: 0px !important;
+}
+

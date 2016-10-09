@@ -258,6 +258,7 @@
         }
 
         function OpenTab (e) {
+            console.log(e);
             e.preventDefault();
             $(e.target).tab('show');
         }

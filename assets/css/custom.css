@@ -1,3 +1,63 @@
 @import url('custom.header.css');
 @import url('custom.breadcrumb.css');
 @import url('custom.contacts.css');
+@import url('custom.summary.css');
+
+
+/*GENERAL*/
+
+body, .main-content {
+    background: #ece8f0 !important;
+}
+
+.container-fullw {
+	padding-top: 25px !important;
+}
+
+.btn-dark-violet {
+    background-color: #544890;
+    border-color: #544890;
+    color: #FFF;
+}
+
+.btn-dark-bluegreen {
+    background-color: #3baebb;
+    border-color: #3baebb;
+    color: #FFF;
+}
+
+.btn-violet {
+    background-color: #7266ba;
+    border-color: #7266ba;
+    color: #FFF;
+}
+
+.btn-dark-sky-blue {
+	background-color: #5898d0;
+    border-color: #5898d0;
+    color: #FFF;
+}
+.btn-sky-blue {
+	background-color: #5b9bd1;
+    border-color: #5b9bd1;
+    color: #FFF;
+}
+
+[data-toggle=radio] > .btn input[type=radio],
+[data-toggle=radio] > .btn-group>.btn input[type=radio] {
+    position: absolute;
+    clip: rect(0,0,0,0);
+    pointer-events: none;
+}
+
+.link-color {
+	color: #3baebb;
+}
+
+.violet {
+	color: #705e7b;
+}
+
+#summary .panel-white, .partition-white {
+	border: 1px solid rgba(112, 94, 123, 0.45) !important;
+}

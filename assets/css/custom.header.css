@@ -1,17 +1,5 @@
-body,
-.main-content {
-    background: #ece8f0 !important;
-}
-
 .navbar .navbar-header .navbar-brand {
 	right: 0;
-}
-
-[data-toggle=radio]>.btn input[type=radio],
-[data-toggle=radio]>.btn-group>.btn input[type=radio] {
-    position: absolute;
-    clip: rect(0,0,0,0);
-    pointer-events: none;
 }
 
 .navbar .navbar-header .navbar-brand img {
@@ -70,11 +58,6 @@ a.navbar-brand {
     margin-bottom: 40px;
 }
 
-.btn-violet {
-    background-color: #7266ba;
-    border-color: #7266ba;
-    color: #FFF;
-}
 
 .navbar-form.main-search input#search {
     background-color: #FFFFFF !important;
@@ -98,18 +81,6 @@ a.navbar-brand {
 
 .navbar-collapse .launch .btn:hover {
     color: #FFF !important;
-}
-
-.btn-dark-violet {
-    background-color: #544890;
-    border-color: #544890;
-    color: #FFF;
-}
-
-.btn-dark-bluegreen {
-    background-color: #3baebb;
-    border-color: #3baebb;
-    color: #FFF;
 }
 
 
@@ -182,7 +153,6 @@ ul.navbar-right ul li {
         color: rgba(51, 51, 51, 0.7) !important;
     }
 }
-
 
 .nav.navbar-right .badge.notification {
     display: block !important;
