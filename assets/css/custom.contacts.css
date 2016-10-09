@@ -171,6 +171,6 @@ tr > td {
     padding-top: 2px !important;
 }
 
-tr:hover {
+tbody > tr:hover {
     background-color: #ffffe7 !important;
 }
