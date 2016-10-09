@@ -46,7 +46,8 @@
     height: 0;
     border-top: 50px solid transparent;
     border-bottom: 50px solid transparent;
-    border-left: 33px solid #ece8f0;
+    /*border-left: 33px solid #ece8f0;*/
+    border-left: 45px solid #ece8f0;
     position: absolute;
     top: 50%;
     margin-top: -50px;

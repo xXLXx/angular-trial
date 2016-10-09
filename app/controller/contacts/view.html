@@ -45,19 +45,18 @@
 
         <div class="col-md-12">	
 			<div class="row">
-	        	<div class="col-md-2">
-	        		<h2>My Contacts</h2> 
-	        	</div>
-	        	<div class="col-md-4">
+	        	<div class="col-md-6">
+	        		<h2 class="page-title">My Contacts</h2> 
 	        		<span>{{ vm.contact_count }} Total Contacts | Last Updated: <b><i>Yesterday</i></b></span>
 	        	</div>
 				<div class="col-md-6">
 					<div class="pull-right">
-						<button ng-click="vm.ShowAddModalContact()" type="button" class="btn btn-primary btn-lg"
+						<button ng-click="vm.ShowAddModalContact()" type="button" class="btn btn-primary btn-lg btn-bluegreen"
 						data-toggle="modal" data-target="#modal-add-contact">
 							<i class="ti-plus"></i>&nbsp;&nbsp;Add Contact
 						</button>
-						<button type="button" class="btn btn-primary btn-lg">
+						<button type="button" class="btn btn-primary btn-lg btn-bluegreen disabled"
+							data-placement="bottom" data-toggle="tooltip" title="Select 2 or more contacts to merge">
 							Merge Contact
 						</button>
 					</div>
@@ -65,7 +64,12 @@
         	</div>
         	<br/>
             <div class="panel panel-white">
-                <div class="panel-body"> 
+                <div class="panel-body letter-scroll-table">
+                	<ul>
+                		<li ng-repeat="letter in vm.letters" ng-class="{active: $index == 0}">
+                			<span ng-bind="letter"></span>
+                		</li>
+                	</ul>
                 	<div>
                         <table class="table table-striped">
                         	<thead>
@@ -77,11 +81,11 @@
 										</div>
 									</th>
 									<th>Family Name</th>
-									<th class="hidden-xs">City</th>
+									<th class="hidden-xs">City <i class="ti-filter"></i></th>
 									<th>Contact #</th>
-									<th class="hidden-xs">Adviser</th>
-									<th>Client Type</th>
-									<th><input type="text"></input></th>
+									<th class="hidden-xs">Adviser <i class="ti-filter"></i></th>
+									<th>Client Type <i class="ti-filter"></i></th>
+									<th><input type="text" class="form-control" placeholder="Search contacts"></input></th>
 								</tr>
 							</thead>
 							<tbody>

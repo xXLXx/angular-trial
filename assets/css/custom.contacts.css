@@ -1,0 +1,91 @@
+.page-title {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.btn-bluegreen {
+    width: 128px;
+    height: 35px;
+    height: 38px;
+    width: 128px;
+    font-size: 13px;
+    background-color: #2dbfc2;
+    border-color: #2dbfc2;
+}
+
+.btn-bluegreen:hover {
+    background-color: #38cbce !important;
+    border-color: #38cbce;
+}
+
+.btn.disabled {
+    background-color: #cbc8cf;
+    border-color: #cbc8cf;
+}
+
+.tooltip > .tooltip-arrow {
+    border-bottom-color: #150f33;
+}
+
+.tooltip > .tooltip-inner {
+    background-color: #150f33;
+}
+
+[type="text"].form-control {
+    border-radius: 2px;
+}
+
+.table th > input {
+    font-weight: normal;
+    padding-left: 12px !important;
+}
+
+.letter-scroll-table {
+    display: table-row;
+}
+
+.letter-scroll-table > * {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.letter-scroll-table > *:nth-child(2) {
+    width: 100%;
+}
+
+.letter-scroll-table ul {
+    padding: 70px 15px 20px;
+    text-align: center;
+}
+
+.letter-scroll-table li {
+    list-style-type: none;
+    margin-bottom: 5px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.letter-scroll-table li > span {
+    z-index: 1;
+    position: relative;
+}
+
+.letter-scroll-table li:hover > span,
+.letter-scroll-table li.active > span {
+    color: white;
+}
+
+.letter-scroll-table li:hover:before,
+.letter-scroll-table li.active:before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    border-radius: 50%;
+    background: #38cbce;
+    left: 14px;
+}
+
+.letter-scroll-table li:hover:before {
+    background: #c8c7cc;
+}
