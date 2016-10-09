@@ -38,6 +38,9 @@
         vm.ShowModalAddRelationship = ShowModalAddRelationship;
         vm.ShowInfo = ShowInfo;
         vm.OpenTab = OpenTab;
+        vm.SelectContact = SelectContact;
+        vm.EditContact = EditContact;
+        vm.DeleteContact = DeleteContact;
 
         $rootScope.$on('MODAL_ADD_CONTACT_OK', _OnAddContactModalOk);
         $rootScope.$on('MODAL_ADD_RELATIONSHIP_OK', _OnAddRelationshipModalOk);
@@ -238,9 +241,24 @@
             $rootScope.FamilyName = family_info.FamilyFullName;
         }
 
+        function SelectContact (e) {
+            var $ele = $(e.currentTarget).find('[type="checkbox"]'); 
+            e.stopPropagation();
+            console.log($ele);
+            $ele.prop('checked', !$ele.prop('checked'));
+        }
+
         function OpenTab (e) {
             e.preventDefault();
             $(e.target).tab('show');
+        }
+
+        function EditContact (e) {
+            e.stopPropagation();
+        }
+
+        function DeleteContact (e) {
+            e.stopPropagation();
         }
         
 
