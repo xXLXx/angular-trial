@@ -72,7 +72,7 @@
                 	</ul>
                 	<div class="contacts-main">
                         <table class="table table-striped">
-                        	<thead>
+                        	<thead class="hidden-xs">
 								<tr>
 									<th>
 										<div class="checkbox clip-check check-primary">
@@ -81,9 +81,9 @@
 										</div>
 									</th>
 									<th>Family Name</th>
-									<th class="hidden-xs">City <i class="ti-filter"></i></th>
+									<th>City <i class="ti-filter"></i></th>
 									<th>Contact #</th>
-									<th class="hidden-xs">Adviser <i class="ti-filter"></i></th>
+									<th>Adviser <i class="ti-filter"></i></th>
 									<th>Client Type <i class="ti-filter"></i></th>
 									<th><input type="text" class="form-control" placeholder="Search contacts"></input></th>
 								</tr>
@@ -98,11 +98,11 @@
 										</div>
 									</td>
 									<td>{{family_list.FamilyFullName}}</td>
-									<td>{{family_list.City}}</td>
-									<td>{{family_list.Contact}}</td>
-									<td>{{family_list.Adviser}}</td>
-									<td>{{family_list.ClientType}}</td>
-									<td>
+									<td class="hidden-xs">{{family_list.City}}</td>
+									<td class="hidden-xs">{{family_list.Contact}}</td>
+									<td class="hidden-xs">{{family_list.Adviser}}</td>
+									<td class="hidden-xs">{{family_list.ClientType}}</td>
+									<td class="hidden-xs">
 										<a href="" class="fa fa-pencil-square-o" ng-click="vm.EditContact($event)"></a>
 										<a href="" class="fa fa-trash-o" ng-click="vm.DeleteContact($event)"></a>
 									</td>

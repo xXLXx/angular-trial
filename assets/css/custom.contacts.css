@@ -3,6 +3,14 @@
     border-bottom-width: 2px !important;
 }
 
+#contacts tr {
+    background: none;
+}
+
+#contacts tr:nth-child(odd) td {
+    background-color: #efeff0;
+}
+
 #contacts tr:nth-child(odd) > td:first-child  {
     border-left: 2px solid #e2e2e4;
 }
@@ -24,8 +32,8 @@
     padding-top: 2px !important;
 }
 
-#contacts tbody > tr:hover {
-    background-color: #ffffe7 !important;
+#contacts tbody > tr:hover > td {
+    background-color: #ffffe7;
 }
 
 #contacts .page-title {
@@ -120,6 +128,10 @@
     background: #c8c7cc;
 }
 
+#contacts .clip-check label {
+    padding-left: 0px !important;
+}
+
 #contacts .clip-check label:before {
     height: 14px;
     width: 14px;
@@ -192,6 +204,10 @@
     padding-right: 20px;
 }
 
+#contacts .contacts-main thead {
+    padding-right: 20px;
+}
+
 #contacts .contacts-main th,
 #contacts .contacts-main td {
     width: 12.5%;
@@ -221,3 +237,22 @@
     background-color: #d1c4d7 !important;
 }
 
+@media (max-width: 767px) {
+    #contacts .contacts-main th:nth-child(2),
+    #contacts .contacts-main td:nth-child(2) {
+        width: 95%;
+    }
+
+    #contacts tr {
+        background: none;
+    }
+
+    #contacts tr:nth-child(odd) > td:first-child {
+        border-left: 2px solid transparent;
+    }
+
+    #contacts th,
+    #contacts td {
+        border-bottom-width: 1px !important;
+    }
+}
