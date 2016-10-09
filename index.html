@@ -33,11 +33,9 @@
 </head>
 
 <body ng-class="{'login' : $state.current.name === 'login'}"> 
-
-
-	<div id="app" class="lyt-2">
+	<div id="app" class="lyt-2 app-navbar-fixed app-sidebar-fixed" ng-class="{'app-sidebar-closed': IsToggleMenuClosed, 
+	'app-slide-off': IsToggleMenuClosed }">
 		<lsidebar></lsidebar>
-
 		<div ng-class="{'app-content' : $state.current.name !== 'login'}">
 			<topnavbar></topnavbar>
 			<div ng-class="{'main-content' : $state.current.name !== 'login'}">

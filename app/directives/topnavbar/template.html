@@ -2,9 +2,9 @@
 <header class="navbar navbar-default navbar-static-top"  ng-hide="$state.current.name === 'login'">
 	<!-- start: NAVBAR HEADER -->
 	<div class="navbar-header">
-		<button href="#" class="sidebar-mobile-toggler pull-left btn no-radius hidden-md hidden-lg" class="btn btn-navbar sidebar-toggle" ng-click="ToggleMenu()">
+		<a class="sidebar-mobile-toggler pull-left btn no-radius hidden-md hidden-lg" class="btn btn-navbar sidebar-toggle" ng-click="ToggleMenu()">
 			<i class="fa fa-bars"></i>
-		</button>
+		</a>
 
 		<a class="navbar-brand" href="index.html"> <img src="assets/images/logo.png" alt="Packet"/> </a>
 		<a class="navbar-brand navbar-brand-collapsed" href="index.html"> <img src="assets/images/logo-collapsed.png" alt="" /> </a>
@@ -19,7 +19,7 @@
 		<ul class="nav navbar-left hidden-sm hidden-xs">
 			<li class="sidebar-toggler-wrapper">
 				<div>
-					<button href="javascript:void(0)" class="btn sidebar-toggler visible-md visible-lg">
+					<button class="btn sidebar-toggler visible-md visible-lg" ng-click="ToggleMenu()">
 						<i class="fa fa-bars"></i>
 					</button>
 				</div>

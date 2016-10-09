@@ -177,7 +177,8 @@ ul.navbar-right ul li {
 }
 
 @media (max-width: 991px) {
-    .navbar .navbar-collapse .navbar-right > li > a {
+    .navbar .navbar-collapse .navbar-right > li > a,
+    .navbar .navbar-collapse .navbar-right > li > a i {
         color: rgba(51, 51, 51, 0.7) !important;
     }
 }
