@@ -70,11 +70,11 @@
                 			<span ng-bind="letter"></span>
                 		</li>
                 	</ul>
-                	<div>
+                	<div class="contacts-main">
                         <table class="table table-striped">
                         	<thead>
 								<tr>
-									<th>
+									<th width="1px">
 										<div class="checkbox clip-check check-primary">
 											<input type="checkbox" id="checkbox6" value="1">
 											<label for="checkbox6"></label>
@@ -92,9 +92,9 @@
 								<tr ui-sref="contacts.summary({id: family_list.FamilyID})"
 								ng-repeat="family_list in vm.family_lists" ng-click="vm.ShowInfo(family_list)">
 									<td>
-										<div class="checkbox clip-check check-primary">
-											<input type="checkbox" id="checkbox6" value="1">
-											<label for="checkbox6"></label>
+										<div class="checkbox clip-check check-primary" ng-click="vm.SelectContact($event)">
+											<input type="checkbox" id="checkbox-family{{$index}}" value="1">
+											<label for="checkbox-family{{$index}}"></label>
 										</div>
 									</td>
 									<td>{{family_list.FamilyFullName}}</td>
@@ -102,7 +102,10 @@
 									<td>{{family_list.Contact}}</td>
 									<td>{{family_list.Adviser}}</td>
 									<td>{{family_list.ClientType}}</td>
-									<td><i class="fa fa-pencil-square-o"></i></td>
+									<td>
+										<a href="" class="fa fa-pencil-square-o" ng-click="vm.EditContact($event)"></a>
+										<a href="" class="fa fa-trash-o" ng-click="vm.DeleteContact($event)"></a>
+									</td>
 								</tr>
 							</tbody>
                         </table>

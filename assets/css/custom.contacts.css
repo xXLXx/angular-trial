@@ -89,3 +89,88 @@
 .letter-scroll-table li:hover:before {
     background: #c8c7cc;
 }
+
+.clip-check label:before {
+    height: 14px;
+    width: 14px;
+    border-radius: 2px;
+    top: 4px;
+}
+
+.clip-check label:after {
+    left: 2px;
+}
+
+.clip-check input[type="checkbox"]:checked + label:before {
+    border-width: 7px;
+}
+
+.contacts-main {
+    padding-right: 20px;
+}
+
+.contacts-main td:last-child {
+    text-align: center;
+}
+
+.contacts-main td:last-child > a:hover {
+    color: white;
+}
+
+.contacts-main td:last-child > a:hover:before {
+    z-index: 1;
+    position: relative;
+}
+
+.contacts-main td:last-child > a:hover:after {
+    content: '';
+    width: 23px;
+    height: 23px;
+    position: absolute;
+    border-radius: 50%;
+    background: #38cbce;
+    margin-left: -1.6%;
+    margin-top: -5px;
+}
+
+.contacts-main td:last-child > a.fa-trash-o:hover:after {
+    background: #f39291;
+}
+
+.contacts-main td:last-child > a:first-child {
+    margin-right: 10px;
+}
+
+.contacts-main td:last-child > a:last-child {
+    margin-left: 10px;
+}
+
+th,
+td {
+    border-bottom-width: 2px !important;
+}
+
+tr:nth-child(odd) > td:first-child  {
+    border-left: 2px solid #e2e2e4;
+}
+
+tr:nth-child(odd) > td:last-child {
+    border-right: 2px solid #e2e2e4;
+}
+
+tr:nth-child(even) > td:first-child {
+    border-left: 2px solid transparent;
+}
+
+tr:nth-child(even) > td:last-child {
+    border-right: 2px solid transparent;
+}
+
+tr > td {
+    padding-bottom: 2px !important;
+    padding-top: 2px !important;
+}
+
+tbody > tr:hover {
+    background-color: #ffffe7 !important;
+}
