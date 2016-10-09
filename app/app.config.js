@@ -8,6 +8,10 @@
 
     function AppConfig($stateProvider, $urlRouterProvider, $locationProvider, NG_PATH, $breadcrumbProvider) {
 
+        $breadcrumbProvider.setOptions({
+          templateLast: '<i ng-bind-html="ncyBreadcrumbLabel"></i>'
+        });
+
         /**
          * Default Routes
          */

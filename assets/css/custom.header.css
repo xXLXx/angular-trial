@@ -163,7 +163,7 @@ ul.navbar-right ul li {
 .navbar .navbar-collapse .navbar-right > li.dropdown:before {
     width: 2px !important;
     height: 16px !important;
-    background-color: #9b88aa !important;
+    background-color: rgba(126, 126, 126, 0.44) !important;
     top: 20px !important;
 }
 

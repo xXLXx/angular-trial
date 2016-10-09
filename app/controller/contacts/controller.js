@@ -61,8 +61,12 @@
 
                 vm.family_lists = tmp;
             });
+            $scope.$watch($stateParams.id, function () {
+                $('.breadcrumb li:first-child a').prepend('<i class="fa fa-phone-square"></i>')
+            });
 
             if($stateParams.id) {
+              
                 var tmp_adults = [], 
                     tmp_childs = [], 
                     tmp_loans = [], 
@@ -229,6 +233,7 @@
         
 
         _init();
+
     }
     
 })();
