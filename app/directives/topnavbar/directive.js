@@ -11,7 +11,7 @@
         .module('lmr-trial')
         .directive('topnavbar', topnavbar);
 
-    function topnavbar(NG_PATH) {
+    function topnavbar(NG_PATH, UserSession) {
 
         var directive = {
             restrict: 'E',
@@ -41,11 +41,17 @@
         function _Link(scope, element, attrs) {
             
            scope.ToggleMenu = ToggleMenu;
+           scope.Logout = Logout;
            scope.isToggled = false;
 
            function ToggleMenu () {
                 scope.isToggled != scope.isToggled;
            } 
+
+
+           function Logout() {
+                UserSession.Logout();
+           }
 
         }
 

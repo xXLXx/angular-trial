@@ -13,7 +13,8 @@
                 $http, 
                 $q,  
                 $location,
-                HttpService, 
+                HttpService,
+                Auth, 
                 $rootScope, 
                 $timeout, 
                 $cookieStore,
@@ -23,9 +24,11 @@
                 APP_PATH) {
 
         var vm = this;        
-        vm.IsSet =  IsSet;
+        vm.IsSet = IsSet;
         vm.Set = Set;
         vm.Check = Check;
+        vm.SetEmailPass = SetEmailPass;
+        vm.Logout = Logout;
 
         // ===================================== //
         //         FUNCTION DEFINITION(S)        //
@@ -42,11 +45,18 @@
          *     (Boolean) - Boolean flag if a user has logged in or not.
          */
         function IsSet() {
-
-            // if (typeof $rootScope.user === 'undefined') {
-            //     return false;
-            // }
-
+            if ($rootScope.email && $rootScope.password) {
+                Auth.Login({
+                    'username' : $rootScope.email,
+                    'password' : $rootScope.password
+                }).then(function (response){
+                    console.log(response);
+                    return true;
+                }, function (error) {
+                    console.log(error);
+                   return false;
+                });
+            }   
             return false;
         }
 
@@ -60,6 +70,23 @@
             }, 800);
         }
 
+
+        function SetEmailPass (email, password) {
+            $rootScope.email = email;
+            $rootScope.password = password;
+        }
+
+
+        function Logout () {
+            $cookieStore.remove(COOKIE.AUTH_TOKEN);
+            HttpService.RemoveAuthHeaders();
+
+            delete $rootScope.token;
+
+            $timeout(function() {
+                $location.path(APP_PATH.LOGIN_URL);            
+            }, 800);
+        }
           /**
          * Access: Public 
          * Function: Check
@@ -68,10 +95,10 @@
          * then automatically login, else do nothing.
          */
         function Check() {
-            if (typeof $cookieStore.get(COOKIE.AUTH_TOKEN) !== 'undefined') {                
+            if (typeof $cookieStore.get(COOKIE.AUTH_TOKEN) !== 'undefined') {   
                 $rootScope.token = $cookieStore.get(COOKIE.AUTH_TOKEN);
                 HttpService.SetAuthorizationHeader($rootScope.token);
-            }
+            }            
 
             var redirect = ($rootScope.token) ? APP_PATH.BASE_URL : APP_PATH.LOGIN_URL;
             if (redirect === APP_PATH.BASE_URL && $location.path().length > 2)

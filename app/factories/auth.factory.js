@@ -12,7 +12,8 @@
     
     function Auth($http, $q, $rootScope, LMR_API, AUTH) {
         var service = {
-            Login: Login
+            Login: Login,
+            Logout : Logout
         };
 
 
@@ -38,7 +39,6 @@
          *     (Object) - The user information
          */
         function Login(loginCred) {
-            console.log('dd');
             var d = $q.defer();
             
             $http({
@@ -57,6 +57,26 @@
                     status: status
                 });
 
+            });
+
+            return d.promise;
+
+        }
+
+        function Logout() {
+            var d = $q.defer();
+            
+            $http({
+                method: 'POST',
+                url: LMR_API.URL + AUTH.LOGIN,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization' : 'Bearer' + $rootScope.token
+                }
+            }).success(function(response) {
+                d.resolve(response);
+            }).error(function(status) {
+                d.reject(status);
             });
 
             return d.promise;

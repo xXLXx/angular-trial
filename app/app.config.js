@@ -76,7 +76,15 @@
         });
 
         function _CheckSession($timeout, $location, UserSession) {
-            console.log('dd');
+            if (UserSession.IsSet()) {
+                 var redirect = ($rootScope.token) ? APP_PATH.BASE_URL : APP_PATH.LOGIN_URL;
+                if (redirect === APP_PATH.BASE_URL && $location.path().length > 2)
+                    return;
+                    
+                $timeout(function() {
+                    $location.path(redirect);            
+                }, 10);
+            }
         }
 
     }

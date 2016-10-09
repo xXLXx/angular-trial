@@ -9,17 +9,20 @@
 
     angular.module('lmr-trial').factory('ContactService', ContactService);
 
-    function ContactService($http, $q, $rootScope, LMR_API, CONTACT) {
+    function ContactService($http, $q, $rootScope, UserSession, LMR_API, CONTACT, CLIENT) {
 
         var service = {
             RetrieveListFamilyData: RetrieveListFamilyData,
-            RetrieveListMyContact: RetrieveListMyContact,
             AddConctactSet:   AddConctactSet,
             RetrieveContactSummary : RetrieveContactSummary,
             RetrieveLoanList:  RetrieveLoanList,
             RetrieveAddressInfo : RetrieveAddressInfo,
             RetrieveTaggedList : RetrieveTaggedList,
-            RetrieveNoteList  : RetrieveNoteList
+            RetrieveNoteList  : RetrieveNoteList,
+            RetrieveClientList : RetrieveClientList,
+            RetrieveRelationshipList : RetrieveRelationshipList,
+            RetrieveContactFamilyInfo : RetrieveContactFamilyInfo,
+            RetrieveAdviserName : RetrieveAdviserName
         };
 
         return service;
@@ -49,29 +52,15 @@
             }).success(function(response) {
                 d.resolve(response);
             }).error(function(response) {
+                if (response == "Your Session has expired") {
+                    UserSession.Logout();
+                }
                 d.reject(response);
             });
 
             return d.promise;
         }
 
-
-        function RetrieveListMyContact() {
-            var d = $q.defer();
-            $http({
-                method: 'GET',
-                url: LMR_API.URL + CONTACT.GET_PER_FAMILY,
-                headers: {
-                    'Authorization': 'Bearer ' + $rootScope.token,
-                },
-            }).success(function(response) {
-                d.resolve(response);
-            }).error(function(response) {
-                d.reject(response);
-            });
-
-            return d.promise;
-        }
 
         function AddConctactSet(data) {
             var d = $q.defer();
@@ -85,13 +74,11 @@
                 },
                 data: JSON.stringify(data)
             }).success(function(response) {
-                if (!response.success) {
-                    d.reject(response);
-                } else {
-                    d.resolve(response);
-                }
+                d.resolve(response);
             }).error(function(response) {
-                d.reject(response);
+                if (response == "Your Session has expired") {
+                    UserSession.Logout();
+                }
             });
 
             return d.promise;
@@ -110,7 +97,9 @@
                 }).success(function(response) {
                     d.resolve(response);
                 }).error(function(response) {
-                    d.reject(response);
+                     if (response == "Your Session has expired") {
+                        UserSession.Logout();
+                    }
                 });
                 return d.promise;
 
@@ -130,7 +119,9 @@
                 }).success(function(response) {
                     d.resolve(response);
                 }).error(function(response) {
-                    d.reject(response);
+                    if (response == "Your Session has expired") {
+                        UserSession.Logout();
+                    }
                 });
                 return d.promise;
 
@@ -150,7 +141,9 @@
                 }).success(function(response) {
                     d.resolve(response);
                 }).error(function(response) {
-                    d.reject(response);
+                     if (response == "Your Session has expired") {
+                        UserSession.Logout();
+                    }
                 });
                 return d.promise;
 
@@ -170,7 +163,9 @@
                 }).success(function(response) {
                     d.resolve(response);
                 }).error(function(response) {
-                    d.reject(response);
+                     if (response == "Your Session has expired") {
+                        UserSession.Logout();
+                    }
                 });
                 return d.promise;
 
@@ -189,14 +184,97 @@
                 }).success(function(response) {
                     d.resolve(response);
                 }).error(function(response) {
-                    d.reject(response);
+                     if (response == "Your Session has expired") {
+                        UserSession.Logout();
+                    }
                 });
                 return d.promise;
 
             }
         }
 
-        
+        function RetrieveClientList () {
+            var d = $q.defer();
+            if (familyid) {
+                $http({
+                    method: 'GET',
+                    url: LMR_API.URL + CLIENT.GET_ALL,
+                    headers: {
+                        'Authorization': 'Bearer ' + $rootScope.token,
+                    },
+                }).success(function(response) {
+                    d.resolve(response);
+                }).error(function(response) {
+                     if (response == "Your Session has expired") {
+                        UserSession.Logout();
+                    }
+                });
+                return d.promise;
+
+            }
+        }
+
+
+        function RetrieveRelationshipList (familyid) {
+            var d = $q.defer();
+            if (familyid) {
+                $http({
+                    method: 'GET',
+                    url: LMR_API.URL + CLIENT.RELATIONSHIP + '?familyId=' + familyid,
+                    headers: {
+                        'Authorization': 'Bearer ' + $rootScope.token,
+                    },
+                }).success(function(response) {
+                    d.resolve(response);
+                }).error(function(response) {
+                     if (response == "Your Session has expired") {
+                        UserSession.Logout();
+                    }
+                });
+                return d.promise;
+
+            }
+        }
+
+        function RetrieveContactFamilyInfo (familyid) {
+            var d = $q.defer();
+            if (familyid) {
+                $http({
+                    method: 'GET',
+                    url: LMR_API.URL + CLIENT.INFO + '?familyId=' + familyid,
+                    headers: {
+                        'Authorization': 'Bearer ' + $rootScope.token,
+                    },
+                }).success(function(response) {
+                    d.resolve(response);
+                }).error(function(response) {
+                     if (response == "Your Session has expired") {
+                        UserSession.Logout();
+                    }
+                });
+                return d.promise;
+
+            }
+        }
+
+         function RetrieveAdviserName (adviserID) {
+            var d = $q.defer();
+            $http({
+                method: 'GET',
+                url: LMR_API.URL + CLIENT.ADVISER,
+                headers: {
+                    'Authorization': 'Bearer ' + $rootScope.token,
+                },
+            }).success(function(response) {
+                d.resolve(response);
+            }).error(function(response) {
+                 if (response == "Your Session has expired") {
+                    UserSession.Logout();
+                }
+            });
+            return d.promise;
+        }
+
     }
 
 } )( );

@@ -2,15 +2,17 @@
     <div class="row">
         <div class="col-md-12">	
 			<div class="row">
-	        	<div class="col-md-2">
-	        		<h2>{{ $root.FamilyName }}</h2> 
-	        	</div>
-	        	<div class="col-md-4">
-	        		<span class="label partition-purple">Administrator</span>
-	        		<span class="label partition-purple">Administrator</span>
-	        		<span class="label partition-purple">Administrator</span>
-	        		<span>| Last Updated: <b><i>Yesterday</i></b></span>
-	        	</div>
+				<div class="col-md-12">
+		        	<div class="col-md-2">
+		        		<h2>{{ $root.FamilyName }}</h2> 
+		        	</div>
+		        	<div class="col-md-4">
+		        		<span class="label partition-purple">Administrator</span>
+		        		<span class="label partition-purple">Administrator</span>
+		        		<span class="label partition-purple">Administrator</span>
+		        		<span>| Last Updated: <b><i>Yesterday</i></b></span>
+		        	</div>
+		        </div>
         	</div>
         	<br/>
         	<div class="row">
@@ -21,17 +23,17 @@
 								<div class="tabbable">
 									<ul id="myTab1" class="nav nav-tabs">
 										<li class="active">
-											<a href="#myTab1_example1" data-toggle="tab"  ng-click="vm.OpenTab($event)"> SUMMARY </a>
+											<a href="#summary" data-toggle="tab"  ng-click="vm.OpenTab($event)"> SUMMARY </a>
 										</li>
 										<li class="">
-											<a href="#myTab1_example2" data-toggle="tab"  ng-click="vm.OpenTab($event)"> CLIENTS </a>
+											<a href="#client" data-toggle="tab"  ng-click="vm.OpenTab($event)"> CLIENTS </a>
 										</li>
 										<li class="">
 											<a href="#myTab1_example3" data-toggle="tab"  ng-click="vm.OpenTab($event)"> LOANS </a>
 										</li>
 									</ul>
 									<div class="tab-content">
-										<div class="tab-pane fade active in" id="myTab1_example1">
+										<div class="tab-pane fade active in" id="summary">
 											<div class="row">
 												<div class="col-md-12">
 													<div class="col-md-5">
@@ -150,7 +152,257 @@
 												</div>
 											</div>
 										</div>
-										<div class="tab-pane fade" id="myTab1_example2">
+										<div class="tab-pane fade" id="client">
+											<div class="row">
+												<div class="col-md-12">
+													<div class="row">
+														<div class="col-md-5">
+															<h4>Clients <span class="badge">{{ vm.client_lists.length }}</span></h4>
+														</div>
+														<div class="col-md-7">
+															<div class="pull-right">
+																<button type="button" class="btn btn-primary btn-md"
+																data-toggle="modal" data-target="#modal-add-contact">
+																	<i class="ti-plus"></i>&nbsp;&nbsp;Add Contact
+																</button>
+																<button type="button" class="btn btn-primary btn-md">
+																	Merge Contact
+																</button>
+															</div>
+														</div>
+													</div>
+													<br/>
+													<div class="row">
+														<div class="col-md-12">
+															<table class="table table-bordered">
+																<th>Name</th>
+																<th>Preferred Name</th>
+																<th>DOB</th>
+																<th>Gender</th>
+																<th>Smoker</th>
+																<th>Phone</th>
+																<th>Role</th>
+																<tbody>
+																	<tr ng-repeat="client_list in vm.client_lists">
+																		<td> {{ client_list.FirstName }} {{ client_list.MiddleName }} {{ client_list.LastName }} </td>
+																		<td>{{ client_list.PreferredName }}</td>
+																		<td>{{ client_list.DOB }}</td>
+																		<td>{{ client_list.Gender }}</td>
+																		<td>{{ client_list.SmokerStatus }}</td>
+																		<td>
+																			<p>{{ client_list.Phone[0].Number }}</p>
+																			<p>{{ client_list.Phone[2].Number }}</p>
+																		</td>
+																		<td>
+																			{{ client_list.Role }}
+																			<i class="fa fa-pencil-square-o"></i>
+																			<i class="fa fa-pencil-square-o"></i>
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+											<br/>
+											<div class="row">
+												<div class="col-md-12">
+													<div class="row">
+														<div class="col-md-5">
+															<h4>Relationships <span class="badge">0</span></h4>
+														</div>
+														<div class="col-md-7">
+															<div class="pull-right">
+																<button type="button" class="btn btn-primary btn-md"
+																data-toggle="modal" data-target="#modal-add-contact">
+																	<i class="ti-plus"></i>&nbsp;&nbsp;Add Contact
+																</button>
+															</div>
+														</div>
+													</div>
+													<br/>
+													<div class="panel panel-white">
+														<div class="panel-body">
+															<div class="row">
+																<div class="col-md-12">
+																	<table class="table table-bordered">
+																		<th>Entity Name</th>
+																		<th>Entrust Type</th>
+																		<th>Phone</th>
+																		<th>Mobile</th>
+																		<th>Email</th>
+																		<th>Address</th>
+																		<th>Action</th>
+																		<tbody>
+																			<tr ng-repeat="relationship_list in vm.relationship_lists">
+																				<td> {{ relationship_list.Name }} </td>
+																				<td> {{ relationship_list.OrganisationType }}</td>
+																				<td> {{ relationship_list.Work }}</td>
+																				<td> {{ relationship_list.Mobile }}</td>
+																				<td> 
+																					{{ relationship_list.Email[0].EmailAddress }}
+																				</td>
+																				<td>
+																					{{ relationship_list.formatted_address}}
+																				</td>
+																				<td>
+																					{{ client_list.Role }}
+																					<i class="fa fa-pencil-square-o"></i>
+																					<i class="fa fa-pencil-square-o"></i>
+																				</td>
+																			</tr>
+																		</tbody>
+																	</table>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<br/>
+											<div class="row">
+												<div class="col-md-12">
+													<div class="row">
+														<div class="col-md-12">
+															<h4>Contact Information</h4>
+														</div>													
+													</div>
+													<br/>
+													<div class="panel panel-white">
+														<div class="panel-body">
+															<div class="col-md-12">	
+																<div class="col-md-7">
+																	<div  ng-repeat="address_list in vm.address_lists">
+																		<h5>{{address_list.Type }}</h5>
+																		<div>
+																			<table class="table">
+																				<tbody>
+																					<td>
+																						ADDRESS
+																					</td>
+																					<td>
+																						<textarea class="form-control autosize">
+																							{{ address_list.formatted_address }}
+																						</textarea>
+
+																						<div class="checkbox clip-check check-primary" ng-if="address_list.Type == 'Home'">
+																						<input type="checkbox" id="checkbox1" ng-model="vm.isChecked">
+																						<label for="checkbox1"> Remember me </label>
+																					</div>
+																					</td>
+																				</tbody>
+																			</table>
+																		</div>
+																	</div>
+																	<div class="checkbox clip-check check-primary text-center">
+																		<input type="checkbox" id="checkbox1" value="1">
+																		<label for="checkbox1"> Remember me </label>
+																	</div>
+																	<div class="checkbox clip-check check-primary text-center">
+																		<input type="checkbox" id="checkbox1" value="1">
+																		<label for="checkbox1"> Remember me </label>
+																	</div>
+																</div>
+																<div class="col-md-5">
+																	<div class="panel panel-white">
+																		<div class="panel-body">
+																			<div class="col-md-12">
+																				<div class="row">
+																					<div class="col-md-5">
+																						<h5>ADVISER</h5>
+																					</div>
+																					<div class="col-md-7">
+																						<input type="text" class="form-control"
+																						value=" {{ vm.home_address.BrokerFullName }}">
+																					</div>
+																				</div>
+																				<div class="row">
+																					<div class="col-md-5">
+																						<h5>EMAIL</h5>
+																					</div>
+																					<div class="col-md-7">
+																						<input type="text"
+																						class="form-control"
+																						value=" {{ vm.home_address.MainEmail }}
+																						">
+																					</div>
+																				</div>
+																				<div class="row">
+																					<div class="col-md-5">
+																						<h5>CLIENT TYPE</h5>
+																					</div>
+																					<div class="col-md-7">
+																						<div class="list-group-item">
+																							<span class="label partition-purple" ng-repeat="client_type in vm.home_address.ClientTypes">
+																								{{client_type }}
+																							</span>
+																						</div>
+																					</div>
+																				</div>
+																				<div class="row">
+																					<div class="col-md-5">
+																						<h5>RATING</h5>
+																					</div>
+																					<div class="col-md-7">
+																						<div class="list-group-item">
+																							<span class="label partition-purple" ng-repeat="rating in vm.home_address.Rating">
+																								{{ rating }}
+																							</span>
+																						</div>
+																					</div>
+																				</div>
+																				<div class="row">
+																					<div class="col-md-5">
+																						<h5>REVIEW MONTH</h5>
+																					</div>
+																					<div class="col-md-7">
+																						<div class="list-group-item">
+																							<span class="label partition-purple">
+																								{{ vm.home_address.ReviewMonth }}
+																							</span>
+																						</div>
+																					</div>
+																				</div>
+																				<div class="row">
+																					<div class="col-md-5">
+																						<h5>REFERENCE CODE</h5>
+																					</div>
+																					<div class="col-md-7">
+																						<input type="text"  class="form-control"value=" {{ vm.home_address.ReferenceCode }}">
+																						
+																					</div>
+																				</div>
+																				<div class="row">
+																					<div class="col-md-5">
+																						<h5>REFERENCE SOURCE</h5>
+																					</div>
+																					<div class="col-md-7">
+																						<input type="email" class="form-control" value=" {{ vm.home_address.ReferralCategory }}">
+																					</div>
+																				</div>
+																				<div class="row">
+																					<div class="col-md-5">
+																						<h5>CATEGORIES</h5>
+																					</div>
+																					<div class="col-md-7">
+																						<div class="list-group-item">
+																							<span class="label partition-purple" ng-repeat="category in vm.home_address.Categories">
+																								{{ category }}
+																							</span>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div> 
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
 											
 										</div>
 										<div class="tab-pane fade" id="myTab1_example3">
