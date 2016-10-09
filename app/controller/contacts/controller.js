@@ -25,6 +25,7 @@
             vm.relationship_lists = [],
             vm.address_lists = [],
             vm.home_address = [];
+            vm.letters = [];
     // ===================================== //
     //          FUNCTION REFERENCE           //
     // ===================================== //
@@ -130,6 +131,17 @@
 
                 _LoadClientInit($stateParams.id);
 
+            }
+
+            _setLetters();
+
+            $('[data-toggle="tooltip"]').tooltip();
+        }
+
+        function _setLetters () {
+            var firstLetter = 'A';
+            for (var x = 0; x < 26; x++) {
+                vm.letters.push(String.fromCharCode(firstLetter.charCodeAt(0) + x));
             }
         }
 
