@@ -15,6 +15,7 @@
         var vm = this;
             vm.family_lists = [];
             vm.contact_count = 0;
+            vm.letters = [];
     // ===================================== //
     //          FUNCTION REFERENCE           //
     // ===================================== //
@@ -51,6 +52,17 @@
                 ContactService.RetrieveContactSummary($stateParams.id).then(function(response) {
                     console.log(response);
                 });
+            }
+
+            _setLetters();
+
+            $('[data-toggle="tooltip"]').tooltip();
+        }
+
+        function _setLetters () {
+            var firstLetter = 'A';
+            for (var x = 0; x < 26; x++) {
+                vm.letters.push(String.fromCharCode(firstLetter.charCodeAt(0) + x));
             }
         }
 
