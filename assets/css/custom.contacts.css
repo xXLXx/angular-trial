@@ -1,39 +1,39 @@
-th,
-td {
+#contacts th,
+#contacts td {
     border-bottom-width: 2px !important;
 }
 
-tr:nth-child(odd) > td:first-child  {
+#contacts tr:nth-child(odd) > td:first-child  {
     border-left: 2px solid #e2e2e4;
 }
 
-tr:nth-child(odd) > td:last-child {
+#contacts tr:nth-child(odd) > td:last-child {
     border-right: 2px solid #e2e2e4;
 }
 
-tr:nth-child(even) > td:first-child {
+#contacts tr:nth-child(even) > td:first-child {
     border-left: 2px solid transparent;
 }
 
-tr:nth-child(even) > td:last-child {
+#contacts tr:nth-child(even) > td:last-child {
     border-right: 2px solid transparent;
 }
 
-tr > td {
+#contacts tr > td {
     padding-bottom: 2px !important;
     padding-top: 2px !important;
 }
 
-tbody > tr:hover {
+#contacts tbody > tr:hover {
     background-color: #ffffe7 !important;
 }
 
-.page-title {
+#contacts .page-title {
     display: inline-block;
     margin-right: 30px;
 }
 
-.btn-bluegreen {
+#contacts .btn-bluegreen {
     width: 128px;
     height: 35px;
     height: 38px;
@@ -43,70 +43,70 @@ tbody > tr:hover {
     border-color: #2dbfc2;
 }
 
-.btn-bluegreen:hover {
+#contacts .btn-bluegreen:hover {
     background-color: #38cbce !important;
     border-color: #38cbce;
 }
 
-.btn.disabled {
+#contacts .btn.disabled {
     background-color: #cbc8cf;
     border-color: #cbc8cf;
 }
 
-.tooltip > .tooltip-arrow {
+#contacts .tooltip > .tooltip-arrow {
     border-bottom-color: #150f33;
 }
 
-.tooltip > .tooltip-inner {
+#contacts .tooltip > .tooltip-inner {
     background-color: #150f33;
 }
 
-[type="text"].form-control {
+#contacts [type="text"].form-control {
     border-radius: 2px;
 }
 
-.table th > input {
+#contacts .table th > input {
     font-weight: normal;
     padding-left: 12px !important;
 }
 
-.letter-scroll-table {
+#contacts .letter-scroll-table {
     display: table-row;
 }
 
-.letter-scroll-table > * {
+#contacts .letter-scroll-table > * {
     display: table-cell;
     vertical-align: top;
 }
 
-.letter-scroll-table > *:nth-child(2) {
+#contacts .letter-scroll-table > *:nth-child(2) {
     width: 100%;
 }
 
-.letter-scroll-table ul {
+#contacts .letter-scroll-table ul {
     padding: 70px 15px 20px;
     text-align: center;
 }
 
-.letter-scroll-table li {
+#contacts .letter-scroll-table li {
     list-style-type: none;
     margin-bottom: 5px;
     font-size: 12px;
     cursor: pointer;
 }
 
-.letter-scroll-table li > span {
+#contacts .letter-scroll-table li > span {
     z-index: 1;
     position: relative;
 }
 
-.letter-scroll-table li:hover > span,
-.letter-scroll-table li.active > span {
+#contacts .letter-scroll-table li:hover > span,
+#contacts .letter-scroll-table li.active > span {
     color: white;
 }
 
-.letter-scroll-table li:hover:before,
-.letter-scroll-table li.active:before {
+#contacts .letter-scroll-table li:hover:before,
+#contacts .letter-scroll-table li.active:before {
     content: '';
     width: 16px;
     height: 16px;
@@ -116,30 +116,30 @@ tbody > tr:hover {
     left: 13px;
 }
 
-.letter-scroll-table li:hover:before {
+#contacts .letter-scroll-table li:hover:before {
     background: #c8c7cc;
 }
 
-.clip-check label:before {
+#contacts .clip-check label:before {
     height: 14px;
     width: 14px;
     border-radius: 2px;
     top: 4px;
 }
 
-.clip-check label:after {
+#contacts .clip-check label:after {
     left: 2px;
 }
 
-.clip-check input[type="checkbox"]:checked + label:before {
+#contacts .clip-check input[type="checkbox"]:checked + label:before {
     border-width: 7px;
 }
 
-.contacts-main {
+#contacts .contacts-main {
     padding-right: 20px;
 }
 
-.contacts-main td:last-child {
+#contacts .contacts-main td:last-child {
     text-align: center;
 }
 
@@ -147,12 +147,12 @@ tbody > tr:hover {
     color: white;
 }
 
-.contacts-main td:last-child > a:hover:before {
+#contacts .contacts-main td:last-child > a:hover:before {
     z-index: 1;
     position: relative;
 }
 
-.contacts-main td:last-child > a:hover:after {
+#contacts .contacts-main td:last-child > a:hover:after {
     content: '';
     width: 23px;
     height: 23px;
@@ -163,61 +163,61 @@ tbody > tr:hover {
     margin-top: -5px;
 }
 
-.contacts-main td:last-child > a.fa-trash-o:hover:after {
+#contacts .contacts-main td:last-child > a.fa-trash-o:hover:after {
     background: #f39291;
 }
 
-.contacts-main td:last-child > a:first-child {
+#contacts .contacts-main td:last-child > a:first-child {
     margin-right: 10px;
 }
 
-.contacts-main td:last-child > a:last-child {
+#contacts .contacts-main td:last-child > a:last-child {
     margin-left: 10px;
 }
 
-.contacts-main tbody,
-.contacts-main thead,
-.contacts-main tr {
+#contacts .contacts-main tbody,
+#contacts .contacts-main thead,
+#contacts .contacts-main tr {
     display: block;
 }
 
-.contacts-main tr {
+#contacts .contacts-main tr {
     width: 100%;
 }
 
-.contacts-main tbody {
+#contacts .contacts-main tbody {
     height: 580px;
     overflow: auto;
     position: relative;
     padding-right: 20px;
 }
 
-.contacts-main th,
-.contacts-main td {
+#contacts .contacts-main th,
+#contacts .contacts-main td {
     width: 12.5%;
 }
 
-.contacts-main th:nth-child(2),
-.contacts-main td:nth-child(2) {
+#contacts .contacts-main th:nth-child(2),
+#contacts .contacts-main td:nth-child(2) {
     width: 20%;
 }
 
-.contacts-main th:last-child,
-.contacts-main td:last-child {
+#contacts .contacts-main th:last-child,
+#contacts .contacts-main td:last-child {
     width: 20%;
 }
 
-.contacts-main th:first-child,
-.contacts-main td:first-child {
+#contacts .contacts-main th:first-child,
+#contacts .contacts-main td:first-child {
     width: 5%;
 }
 
-.contacts-main .ps-scrollbar-y-rail {
+#contacts .contacts-main .ps-scrollbar-y-rail {
     background-color: #f4f2f8 !important;
 }
 
-.contacts-main .ps-container:hover > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y,
-.contacts-main .ps-container > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+#contacts .contacts-main .ps-container:hover > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y,
+#contacts .contacts-main .ps-container > .ps-scrollbar-y-rail > .ps-scrollbar-y {
     background-color: #d1c4d7 !important;
 }
 
