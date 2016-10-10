@@ -15,7 +15,7 @@
     border-left: 2px solid #e2e2e4;
 }
 
-#contacts tr:nth-child(odd) > td:last-child {
+#contacts tr:nth-child(odd) > td:nth-last-child(2) {
     border-right: 2px solid #e2e2e4;
 }
 
@@ -23,7 +23,7 @@
     border-left: 2px solid transparent;
 }
 
-#contacts tr:nth-child(even) > td:last-child {
+#contacts tr:nth-child(even) > td:nth-last-child(2) {
     border-right: 2px solid transparent;
 }
 
@@ -49,6 +49,12 @@
     font-size: 13px;
     background-color: #2dbfc2;
     border-color: #2dbfc2;
+}
+
+#contacts .btn-bluegreen.btn-slim {
+    width: 100%;
+    height: 32px;
+    margin-bottom: 15px;
 }
 
 #contacts .btn-bluegreen:hover {
@@ -151,20 +157,20 @@
     padding-right: 20px;
 }
 
-#contacts .contacts-main td:last-child {
+#contacts .contacts-main td:nth-last-child(2) {
     text-align: center;
 }
 
-.contacts-main td:last-child > a:hover {
+.contacts-main td:nth-last-child(2) > a:hover {
     color: white;
 }
 
-#contacts .contacts-main td:last-child > a:hover:before {
+#contacts .contacts-main td:nth-last-child(2) > a:hover:before {
     z-index: 1;
     position: relative;
 }
 
-#contacts .contacts-main td:last-child > a:hover:after {
+#contacts .contacts-main td:nth-last-child(2) > a:hover:after {
     content: '';
     width: 23px;
     height: 23px;
@@ -175,21 +181,22 @@
     margin-top: -5px;
 }
 
-#contacts .contacts-main td:last-child > a.fa-trash-o:hover:after {
+#contacts .contacts-main td:nth-last-child(2) > a.fa-trash-o:hover:after {
     background: #f39291;
 }
 
-#contacts .contacts-main td:last-child > a:first-child {
+#contacts .contacts-main td:nth-last-child(2) > a:first-child {
     margin-right: 10px;
 }
 
-#contacts .contacts-main td:last-child > a:last-child {
+#contacts .contacts-main td:(2)nth-last-child > a:nth-last-child {
     margin-left: 10px;
 }
 
-#contacts .contacts-main tbody,
-#contacts .contacts-main thead,
-#contacts .contacts-main tr {
+#contacts .contacts-main > table > tbody,
+#contacts .contacts-main > table > thead,
+#contacts .contacts-main > table > tbody > tr,
+#contacts .contacts-main > table > thead > tr {
     display: block;
 }
 
@@ -218,8 +225,8 @@
     width: 20%;
 }
 
-#contacts .contacts-main th:last-child,
-#contacts .contacts-main td:last-child {
+#contacts .contacts-main th:nth-last-child(2),
+#contacts .contacts-main td:nth-last-child(2) {
     width: 20%;
 }
 
@@ -237,14 +244,103 @@
     background-color: #d1c4d7 !important;
 }
 
+#contacts .mobile-search {
+    margin-right: 10px;
+}
+
+#contacts .mobile-search .fa {
+    font-size: 20px;
+}
+
+#contacts .quick-details-table {
+    width: 100%;
+    font-size: 12px;
+}
+
+#contacts .quick-details-table tbody {
+    height: auto;
+    padding-left: 0px !important;
+}
+
+
+#contacts .quick-details-table tr {
+    border: 1px solid #d9d3e1;
+}
+
+#contacts .quick-details-table tr:first-child > td {
+    border-top: 1px solid #d9d3e1 !important;
+}
+
+#contacts .quick-details-table td {
+    /*border: none;*/
+    padding: 10px !important;
+    text-align: left !important;
+    border-left: 1px solid #d9d3e1 !important;
+}
+
+#contacts .quick-details-table td:last-child {
+    border-right: 1px solid #d9d3e1;
+}
+
+#contacts .quick-details-table td:first-child {
+    font-weight: bold;
+    background-color: #f2f0f5 !important;
+    width: 40% !important;
+}
+
+#contacts .quick-details-holder {
+    padding-right: 15px;
+}
+
+#contacts tr.detailed td {
+    border-bottom: none;
+}
+
 @media (max-width: 767px) {
-    #contacts .contacts-main th:nth-child(2),
-    #contacts .contacts-main td:nth-child(2) {
-        width: 95%;
+    #contacts {
+        padding-top: 0px !important;
     }
 
-    #contacts tr {
-        background: none;
+    #contacts .contacts-main {
+        padding-right: 0px;
+    }
+
+    #contacts .contacts-main tbody {
+        padding-right: 0px;
+        padding-left: 10px;
+    }
+
+    #contacts .contacts-main tr {
+        margin-right: 10px;
+    }
+
+    #contacts .contacts-main th:first-child,
+    #contacts .contacts-main td:first-child {
+        padding-left: 0px;
+    }
+
+    #contacts .contacts-main th:nth-child(2),
+    #contacts .contacts-main td:nth-child(2) {
+        width: 70%;
+    }
+
+    #contacts .contacts-main th:nth-last-child(2),
+    #contacts .contacts-main td:nth-last-child(2) {
+        width: 25%;
+        border-right: none !important;
+        padding-right: 20px;
+    }
+
+    #contacts .contacts-main td:nth-last-child(2) > a:first-child {
+        margin-right: 2px;
+    }
+
+    #contacts .contacts-main td(2):nth-last-child > a:nth-last-child {
+        margin-left: 2px;
+    }
+
+    #contacts tr td {
+        background: none !important;
     }
 
     #contacts tr:nth-child(odd) > td:first-child {
@@ -255,4 +351,21 @@
     #contacts td {
         border-bottom-width: 1px !important;
     }
+
+    #contacts .page-title {
+        margin-left: 30px;
+        font-size: 25px;
+    }
+
+    #contacts .panel {
+        margin-right: 10px;
+        margin-left: 30px;
+    }
+
+    #contacts .letter-scroll-table ul {
+        position: absolute;
+        margin-left: -35px;
+        padding-top: 0px;
+    }
+
 }

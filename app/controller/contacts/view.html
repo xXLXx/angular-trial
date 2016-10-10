@@ -48,6 +48,9 @@
 	        	<div class="col-md-6">
 	        		<h2 class="page-title">My Contacts</h2> 
 	        		<span class="hidden-xs">{{ vm.contact_count }} Total Contacts | Last Updated: <b><i>Yesterday</i></b></span>
+	        		<div class="mobile-search visible-xs-only pull-right">
+	        			<a href=""><i class="fa fa-search"></i></a>
+	        		</div>
 	        	</div>
 				<div class="col-md-6">
 					<div class="pull-right hidden-xs">
@@ -89,8 +92,7 @@
 								</tr>
 							</thead>
 							<tbody class="perfect-scrollbar">
-								<tr ui-sref="contacts.summary({id: family_list.FamilyID})"
-								ng-repeat="family_list in vm.family_lists track by $index" ng-click="vm.ShowInfo(family_list)">
+								<tr ng-repeat="family_list in vm.family_lists track by $index" ng-click="vm.ShowInfo($event, family_list)">
 									<td>
 										<div class="checkbox clip-check check-primary" ng-click="vm.SelectContact($event)">
 											<input type="checkbox" id="checkbox-family{{$index}}" value="1">
@@ -102,9 +104,33 @@
 									<td class="hidden-xs">{{family_list.Contact}}</td>
 									<td class="hidden-xs">{{family_list.Adviser}}</td>
 									<td class="hidden-xs">{{family_list.ClientType}}</td>
-									<td class="hidden-xs">
+									<td>
 										<a href="" class="fa fa-pencil-square-o" ng-click="vm.EditContact($event)"></a>
 										<a href="" class="fa fa-trash-o" ng-click="vm.DeleteContact($event)"></a>
+									</td>
+									<td class="hidden quick-details">
+										<table class="table quick-details-table">
+											<tr>
+												<td>Contact #:</td>
+												<td ng-bind="family_list.Contact"></td>
+											</tr>
+											<tr>
+												<td>City:</td>
+												<td ng-bind="family_list.City"></td>
+											</tr>
+											<tr>
+												<td>Adviser:</td>
+												<td ng-bind="family_list.Adviser"></td>
+											</tr>
+											<tr>
+												<td>Client Type:</td>
+												<td ng-bind="family_list.ClientType"></td>
+											</tr>
+										</table>
+										<button type="button" class="btn btn-primary btn-bluegreen btn-slim" data-index="{{ $index }}"
+											ng-click="vm.ShowInfo($event, family_list, true)">
+											View Full Contact Info
+										</button>
 									</td>
 								</tr>
 							</tbody>
