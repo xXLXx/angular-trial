@@ -1,0 +1,41 @@
+.modal-header {
+	background-color: #f2f0f5;
+}
+
+.modal-content {
+	border: 5px solid #615b76;
+}
+
+.modal-title {
+	font-weight: bold;
+    font-size: 20px;
+}
+
+#modal-add-contact {
+	background-color: rgba(38, 30, 67, 0.80);
+}
+
+#modal-add-contact label {
+	font-size: 12px;
+    text-transform: uppercase;
+}
+
+#modal-add-contact .btn-bluegreen {
+	width: auto;
+}
+
+#modal-add-contact .modal-header div:nth-last-child(2){
+	width: 50%;
+}
+
+#modal-add-contact .modal-header div:last-child{
+	display: none;
+}
+
+#modal-add-contact .panel-title {
+	font-weight: bold;
+}
+
+#modal-add-contact .panel {
+	background-color: #f2f0f5;
+}

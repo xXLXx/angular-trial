@@ -11,7 +11,7 @@
         .module('lmr-trial')
         .controller('ContactController', ContactController);
 
-    function ContactController($rootScope, $scope, $state, $stateParams, ContactService, NgTableParams) {
+    function ContactController($rootScope, $scope, $state, $stateParams, ContactService, NgTableParams, $compile) {
         var vm = this;
             vm.contact_count = 0;
             vm.isChecked = false;
@@ -228,11 +228,37 @@
                 'PreferredName': contact.preferred_name,
                 'Title': contact.title,
                 'Gender': contact.gender,
-                'Employment': [{}],
+                'Employment': [{
+                    'Occupation': contact.occupation,
+                    'Employer': contact.employer,
+                    'OccupationClass': 0
+                }],
                 'SmokerStatus': false,
                 'Phone' : [],
                 'Address': [],
-                'Email': []
+                'Email': [],
+                'Phone': [
+                    {
+                        'Type': 'HOME',
+                        'Number': contact.home_phone
+                    },
+                    {
+                        'Type': 'BUSINESS',
+                        'Number': contact.business_phone
+                    },
+                    {
+                        'Type': 'MOBILE',
+                        'Number': contact.mobile_phone
+                    }
+                ],
+                'Email': [
+                    {
+                        'Type': 'EMAIL',
+                        'EmailAddress': contact.email_address
+                    }
+                ],
+                "BestTimeToCall": contact.best_time_to_call + 'AM',
+                "SmokerStatus": contact.smoker,
             }];
 
             ContactService.AddConctactSet(data).then(function(response) {});
@@ -284,8 +310,23 @@
             }
         }
 
-        function ShowInfo (family_info) {
-            $rootScope.FamilyName = family_info.FamilyFullName;
+        function ShowInfo (e, family_info, force) {
+            if (!family_info) {
+                family_info = vm.family_lists[$(e.currentTarget).data('index')];
+            }
+
+            if (window.isMobile() && !force) {
+                var $ele = $(e.currentTarget);
+                if ($ele.hasClass('detailed')) {
+                    $ele.removeClass('detailed').find('+ tr').remove();
+                } else {
+                    $ele.addClass('detailed').after('<tr><td class="quick-details-holder">' + $ele.find('.quick-details').html() + '</td></tr>');
+                    $compile($ele.find('+ tr > .quick-details-holder > button'))($scope);
+                }
+            } else {
+                $rootScope.FamilyName = family_info.FamilyFullName;
+                $state.go('contacts.summary', {id: family_info.FamilyID});
+            }
         }
 
         function SelectContact (e) {

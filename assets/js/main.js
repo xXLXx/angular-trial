@@ -539,6 +539,7 @@ var clipSetting = {}, appSetting = {};
 			return false;
 		}
 	}
+	window.isMobile = isMobile;
 
 	return {
 		init : function() {
