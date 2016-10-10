@@ -27,6 +27,7 @@
                 showDownBtnOk       : '=',
                 showFooter          : '=',
                 contact             : '=',
+                relationship        : '='
             },
             replace:    true,
             template:   '<div id="{{id}}" class="modal fade bs-example-{{ size }}">' +
@@ -48,7 +49,7 @@
                                     '</div>'+
                                     '<div class="modal-footer" ng-show="showFooter">' +
                                         '<div class="row text-center">' +
-                                            '<button class="btn btn-primary" ng-click="OkModal()" ng-show="showDownBtnOk">{{btnOk}}</button>&nbsp; &nbsp;'+
+                                            '<button class="btn btn-dark-bluegreen" ng-click="OkModal()" ng-show="showDownBtnOk">{{btnOk}}</button>&nbsp; &nbsp;'+
                                             '<button class="btn btn-primary btn-o modal-dismiss" ng-click="CloseModal()" ng-show="showBtnCancel">Cancel</button>' +
                                         '</div>'+
                                     '</div>'+
@@ -110,7 +111,6 @@
                 if (scope.id === $rootScope.id_config.addContact) {
                     $rootScope.$broadcast('MODAL_ADD_CONTACT_OK', scope.id, scope.contact);
                 } else if (scope.id === $rootScope.id_config.addRelationship) {
-                    console.log(scope.relationship);
                     $rootScope.$broadcast('MODAL_ADD_RELATIONSHIP_OK', scope.id, scope.relationship);
                 }
             }

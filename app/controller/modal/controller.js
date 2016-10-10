@@ -25,6 +25,7 @@
             'deceased': false,
             'gender': ''
          };
+         vm.relationship = {};
 
     /**
     *

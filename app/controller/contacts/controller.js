@@ -122,9 +122,6 @@
                         }
 
                     });
-
-                    console.log(tmp_clients);
-
                     vm.child_lists = tmp_childs;
                     vm.adult_lists = tmp_adults;
                     vm.client_lists = tmp_clients;
@@ -210,7 +207,6 @@
                 });
 
                 tmp_home_address = contactinfo;
-                console.log(tmp_home_address);
                 vm.home_address = tmp_home_address;
             });
         }
@@ -243,7 +239,6 @@
         }
 
         function _OnAddRelationshipModalOk (e, id, relationship) {
-            console.log(relationship);
             var data = {    
                   "FamilyID": $stateParams.id,
                   "orgs": [
@@ -278,11 +273,11 @@
                       "Notes": relationship.notes,
                     }
                   ]
-                };
-            if (data) {
+            };
+            if (relationship) {
                 ContactService.AddRelationshipSet(data).then(function(response) {
                     alert('Successfully added');
-                    $("#" + scope.id).hide();
+                    $("#" + id).hide();
                 });
             } else {
                 alert('Please Fill in the fields');
@@ -296,12 +291,10 @@
         function SelectContact (e) {
             var $ele = $(e.currentTarget).find('[type="checkbox"]'); 
             e.stopPropagation();
-            console.log($ele);
             $ele.prop('checked', !$ele.prop('checked'));
         }
 
         function OpenTab (e) {
-            console.log(e);
             e.preventDefault();
             $(e.target).tab('show');
         }
