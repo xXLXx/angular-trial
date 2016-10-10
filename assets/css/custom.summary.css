@@ -11,11 +11,20 @@
     vertical-align: middle;
     display: inline-block;
 }
+#summary-row .summary-menus span {
+	font-size: 10px !important;
+}
+
+#summary-row .summary-menus span.date{
+	font-size: 12px !important;
+}
 
 #summary-row .summary-header h2 {
 	display: inline-block;
 	vertical-align: middle;
 	margin-right: 10px;
+	font-size: 20px !important;
+
 }
 
 #summary-row .summary-header h2 {
@@ -50,7 +59,86 @@
 	margin-bottom: 0px !important;
 }
 
-#summary-row #summary-details .client-details .panel-body {
-	padding-top: 0px !important;
+
+#summary-row #summary-details table.table {
+	border-radius: 5px !important;
 }
+
+#summary-row #summary-details .list-group .list-group-item:nth-of-type(even) {
+ 	background-color: #f5f2f8 !important;
+}
+
+#summary-row #summary-details .panel:not(.client-details) table.table tr:nth-of-type(even){
+	background-color: #f5f2f8 !important;
+}
+
+#summary-row #summary-details .panel.client-details table.table td:nth-of-type(odd) {
+	background-color: #f5f2f8 !important;
+}
+
+
+#summary-row #summary .loans a {
+	font-size: 12px;
+	font-weight: 900;
+}
+
+
+
+#summary-row #summary .client-details h4, 
+#summary-row #summary .client-details h5, 
+#summary-row #summary .client-details h6,
+#summary-row #summary .client-details p {
+	margin-bottom: 0px !important;
+	margin-top: 0px !important;
+}
+
+#summary-row #other-details .tagged .panel-title {
+	display: inline-block;
+}
+
+#summary-row #other-details .tagged .panel-body {
+	padding: 20px 0px 0px 0px !important;
+}
+
+#summary-row #other-details .tagged .panel-heading {
+	padding: 15px 0px !important;
+}
+
+#summary-row #other-details .tagged .panel-footer {
+    padding: 15px 0px 5px 0px !important;
+}
+
+#summary-row #other-details .tagged {
+	padding: 0px 20px 10px 20px; 
+}
+
+#summary-row #other-details .tagged .panel-tools {
+	top: 10px !important;
+	right: 0px !important;
+}
+
+#summary-row #other-details .tagged .panel-body i.fa-circle {
+	margin-left: 10px;
+}
+
+#summary-row #other-details .tagged .panel-body span.tag  {
+	margin-right: 10px;
+}
+
+#summary-row #other-details .tagged .panel-body .note:not(:first-child) {
+	margin-top: 10px;
+}
+
+#summary-row #summary-details #client,
+#summary-row #summary-details #summary {
+	padding-top: 24px;
+}
+
+#summary-row .btn {
+	padding: 3px 10px !important; 
+}
+
+#summary-row #client table tbody > tr > td {
+	vertical-align: top !important; 
+} 
 

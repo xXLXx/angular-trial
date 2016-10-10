@@ -91,27 +91,52 @@
 
                 ContactService.RetrieveContactSummary($stateParams.id).then(function(summary) {
                     angular.forEach(summary, function(value, key) {
-                         tmp_clients.push(value);
-                         if (value.Role == 'Adult') {
+                        if (value.Phone.length > 0) {
+                             angular.forEach(value.Phone, function(phone, key) {
+                                if (phone.Type == 'Mobile') {
+                                    value.Mobile = phone.Number;
+                                } else if (phone.Type == 'Work') {
+                                    value.Work = phone.Number;
+                                } else if (phone.Type == 'Home') {
+                                    value.Home = phone.Number;
+                                }
+                            });
+                        } 
+
+                        if (value.Email.length > 0) {
+                            angular.forEach(value.Email, function(email, key) {
+                                if (email.Type == 'Email') {
+                                    value.PrimaryEmail = email.EmailAddress;
+                                } else if (email.Type == 'WorkEmail') {
+                                    value.WorkEmail = email.EmailAddress;
+                                }
+                            });
+                        }
+
+                        tmp_clients.push(value);
+
+                        if (value.Role == 'Adult') {
                             tmp_adults.push(value);
-                         } else if (value.Role == 'Child') {
+                        } else if (value.Role == 'Child') {
                             tmp_childs.push(value);
-                         }
+                        }
 
                     });
+
+                    console.log(tmp_clients);
+
                     vm.child_lists = tmp_childs;
                     vm.adult_lists = tmp_adults;
                     vm.client_lists = tmp_clients;
                 });
 
 
-                ContactService.RetrieveAddressInfo($stateParams.id).then(function(address) {
+                ContactService.RetrieveAddressInfo($stateParams.id).then(function(address) {   
                     angular.forEach(address, function(value, key) {
                         tmp_address.push(value);
                         if (value.Type != 'Mail') {
                             vm.isChecked = true;
                         }
-                        
                         if (vm.isChecked) {
                             tmp_address.push({
                                 'Type': 'Mail',
@@ -120,8 +145,7 @@
                         } 
 
                     });
-                    vm.address_lists = tmp_address;
-                    
+                    vm.address_lists = tmp_address;                
                 });
 
                 ContactService.RetrieveLoanList($stateParams.id).then(function(loans) {
@@ -179,19 +203,15 @@
             });
 
             ContactService.RetrieveContactFamilyInfo(familyid).then(function(contactinfo) {
-               
                 ContactService.RetrieveAdviserName().then(function(adviser) {
                     if (contactinfo.BrokerID == adviser.BrokerId) {
                         contactinfo.BrokerFullName = adviser.FullName;
                     }
-
                 });
 
-
                 tmp_home_address = contactinfo;
+                console.log(tmp_home_address);
                 vm.home_address = tmp_home_address;
-                
-                console.log(vm.home_address);
             });
         }
 
@@ -223,27 +243,50 @@
         }
 
         function _OnAddRelationshipModalOk (e, id, relationship) {
-            var data = {
+            console.log(relationship);
+            var data = {    
                   "FamilyID": $stateParams.id,
                   "orgs": [
                     {
-                      "Name": "string",
-                      "Firm": "string",
-                      "OrganisationCategory": "string",
-                      "OrganisationType": "string",
-                      "OrganisationTypeOther": "string",
-                      "Description": "string",
+                      "Name": relationship.entity_name,
+                      "Firm": relationship.firm,
+                      "OrganisationCategory": relationship.organisationcategory,
+                      "OrganisationType": relationship.entity_type,
+                      "OrganisationTypeOther": relationship.organisationtypeother,
+                      "Description": relationship.description,
                       "IsMainOrganisation": true,
-                      "Phone": [],
-                      "Address": [],
-                      "Email": [],
-                      "Notes": "string",
-                      "PersonId": "string"
+                      "Phone": [
+                        {
+                          "Type": "Mobile" ,
+                          "Number": relationship.mobile
+                        },
+                        {
+                          "Type": "Work" ,
+                          "Number": relationship.fax
+                        },
+
+                      ],
+                      "Address": [{
+                        "formatted_address": relationship.address
+                      }],
+                      "Email": [
+                        {
+                          "Type": "EmailAddress",
+                          "EmailAddress": relationship.email
+                        }
+                        ],
+                      "Notes": relationship.notes,
                     }
                   ]
                 };
-
-            ContactService.AddRelationshipSet(data).then(function(response) {});
+            if (data) {
+                ContactService.AddRelationshipSet(data).then(function(response) {
+                    alert('Successfully added');
+                    $("#" + scope.id).hide();
+                });
+            } else {
+                alert('Please Fill in the fields');
+            }
         }
 
         function ShowInfo (family_info) {

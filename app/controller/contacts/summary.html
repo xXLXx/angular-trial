@@ -9,7 +9,7 @@
 		        		<span class="label btn-sky-blue"><i class="fa fa-send"></i> Send Mail</span>
 		        		<span class="label btn-dark-bluegreen"><i class="fa fa-print"></i> Print Summary</span>
 		        		&nbsp;&nbsp;
-		        		<span>Last Updated: <b><i>Yesterday June 4, 2016</i></b></span>
+		        		<span class="date">Last Updated: <b>Yesterday June 4, 2016</b></span>
 		        	</div>
 	        	</div>
 	        </div>
@@ -30,16 +30,16 @@
 											<a href="#client" data-toggle="tab"  ng-click="vm.OpenTab($event)"> CLIENTS </a>
 										</li>
 										<li>
-											<a href="#loans" data-toggle="tab"> LOANS </a>
+											<a href="#loans" data-toggle="tab" ng-click="vm.OpenTab($event)"> LOANS </a>
 										</li>
 										<li>
-											<a href="#insurance" data-toggle="tab"> INSURANCE </a>
+											<a href="#insurance" data-toggle="tab" ng-click="vm.OpenTab($event)"> INSURANCE </a>
 										</li>
 										<li>
-											<a href="#workflow" data-toggle="tab"> WORKFLOW </a>
+											<a href="#workflow" data-toggle="tab" ng-click="vm.OpenTab($event)"> WORKFLOW </a>
 										</li>
 										<li>
-											<a href="#records" data-toggle="tab"> RECORDS </a>
+											<a href="#records" data-toggle="tab" ng-click="vm.OpenTab($event)"> RECORDS </a>
 										</li>
 									</ul>
 									<div class="tab-content">
@@ -53,25 +53,98 @@
 
 											<div class="row">
 												<div class="col-md-5">
-													<div class="panel panel-white client-details">
+													<div class="panel violet-bordered panel-white client-details">
 														<div class="panel-heading">
 															<div class="row">
-																<div class="col-md-8">
-																	<h5 class="violet"><b>Clients</b></h4>
+																<div class="col-md-7">
+																	<h4 class="violet"><b>Clients</b></h4>
 																</div>
-																<div class="col-md-4">
+																<div class="col-md-5">
 																	<a class="pull-right link-color"><b>VIEW DETAILS</b></a>
 																</div>
 															</div>
 														</div>
 
-														<div class="panel-body">
+														<div class="panel-body padding-top-0">
+															<table class="table table-bordered">
+																<tbody>
+																	<tr>
+																		<td width="33%" class="padding-right-20 
+																		padding-bottom-15 padding-top-15">
+																			<h6 class="pull-right violet"><b>ADULTS</b></h6>
+																		</td>
+																		<td class="padding-left-20 padding-bottom-15
+																		padding-top-15">
+																			<p ng-repeat="adult_list in vm.adult_lists">
+																				{{ adult_list.Title }} 
+																				{{ adult_list.FirstName }} 
+																				{{ adult_list.MiddleName }} 
+																				{{ adult_list.LastName }}
+																			</p>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td width="33%" class="padding-right-20 
+																		padding-bottom-15 padding-top-15">
+																			<h6 class="pull-right violet"><b>CHILDREN</b></h6>
+																		</td>
+																		<td class="padding-left-20 padding-bottom-15
+																		padding-top-15">
+																			<h6 ng-if="vm.child_lists.length > 0">
+																				{{ vm.child_lists.length }}
+																			</h6>
+																			<h6 ng-if="vm.child_lists.length <= 0">
+																				[ No Children Listed ]
+																			</h6>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td width="33%" class="padding-right-20 padding-bottom-15
+																		padding-top-15">
+																			<h6 class="pull-right violet"><b>PHONE</b></h6>
+																		</td>
+																		<td class="padding-left-20 padding-bottom-15
+																		padding-top-15">
+																			<p ng-repeat="phone_list in vm.adult_lists">
+																				{{ phone_list.Home }}
+																				( {{ phone_list.PreferredName }} )
+																			</p>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td width="33%" class="padding-right-20 padding-bottom-15
+																		padding-top-15">
+																			<h6 class="pull-right violet"><b>EMAIL</b></h6>
+																		</td>
+																		<td class="padding-left-20 padding-bottom-15
+																		padding-top-15">
+																			<p ng-repeat="email_list in vm.adult_lists">
+																				{{ email_list.PrimaryEmail }} 
+																				( {{ email_list.PreferredName }} )
+																			</p>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td width="33%" class="padding-right-20 padding-bottom-15
+																		padding-top-15">
+																			<h6 class="pull-right violet"><b>ADDRESS</b></h6>
+																		</td>
+																		<td class="padding-left-20 padding-bottom-15
+																		padding-top-15">
+																			<p ng-repeat="address in vm.address_lists"
+																				ng-if="address.Type == 'Home'">
+																				{{ address.formatted_address }} 
+																			</p>
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
 														</div>
 													</div>
 												</div>
 
 												<div class="col-md-7">
-													<div class="panel panel-white client-details">
+													<div class="panel violet-bordered panel-white record-details">
 														<div class="panel-heading">
 															<div class="row">
 																<div class="col-md-8">
@@ -82,7 +155,7 @@
 																</div>
 															</div>
 														</div>
-														<div class="panel-body">
+														<div class="panel-body padding-top-0">
 															<table class="table table-bordered">
 																<th class="text-center">
 																	<i class="fa fa-calendar"></i> Date
@@ -92,11 +165,11 @@
 																</th>
 																<tbody>
 																	<tr>
-																		<td><h6 class="text-center">02 Jun 2016</h6></td>
+																		<td width="30%"><h6 class="text-center">02 Jun 2016</h6></td>
 																		<td><h6>Referred to  <b>Stuart Mcleod</b> </h6></td>
 																	</tr>
 																	<tr>
-																		<td><h6>01 Jun 2016</h6></td>
+																		<td width="30%"><h6 class="text-center">01 Jun 2016</h6></td>
 																		<td>
 																			<h6>Referred to 
 																				<b>Sent Loan application to Westpac</b>
@@ -104,8 +177,8 @@
 																			<h6>email: <b>wes@gmail.com</b></h6>
 																		</td>
 																	</tr>
-																	<tr>
-																		<td><h6>29 May 2016</h6></td>
+																	<tr> 
+																		<td width="30%"><h6 class="text-center">29 May 2016</h6></td>
 																		<td>
 																			<h6>Referred to 
 																				<b>Forwarded Loan application to Westpac</b>
@@ -117,7 +190,7 @@
 															</table>
 														</div>
 													</div>
-													<div class="panel panel-white">
+													<div class="panel violet-bordered panel-white loans">
 														<div class="panel-heading">
 															<div class="row">
 																<div class="col-md-8">
@@ -128,42 +201,24 @@
 																</div>
 															</div>
 														</div>
-														<div class="panel-body">
-															<!-- <table class="table table-striped table-bordered">
-																<tbody>
-																	<tr ng-repeat="loan_list in vm.loan_lists">
-																		<td>
-																			$ {{loan_list.LoanAmount}}
-																		</td>
-																		<td>
-																			Borrowed by {{loan_list.ActivityTitle}} from 
-																			{{loan_list.ActivityOwner}}
-																		</td>
-																		<td>
-																			Submitted to Lender
-																		</td>
-																	</tr>
-																</tbody>
-															</table> -->
-															<table class="table">
-																<thead>
-																	<tr>
-																		<th>Labels</th>
-																		<th>Class</th>
-																	</tr>
-																</thead>
-																<tbody>
-																	<tr>
-																		<td><span class="label label-default"> Default</span></td>
-																		<td>
-																		<code>
-																			label label-default
-																		</code></td>
-																	</tr>
-																	
-																</tbody>
-															</table>
-
+														<div class="panel-body padding-top-0">
+															<div class="list-group">
+																<div class="list-group-item" 
+																	ng-repeat="loan_list in vm.loan_lists">
+																	<div class="row">
+																		<div class="col-md-3 text-center">
+																			<p class="violet"><b>${{loan_list.LoanAmount}}</b></p>
+																		</div>
+																		<div class="col-md-6">
+																			<p class="violet">Borrowed by {{loan_list.ActivityTitle}} from 
+																			<b>{{loan_list.ActivityOwner}}</b></p>
+																		</div>
+																		<div class="col-md-3">
+																			<a class="link-color">Submitted to Lender</a>
+																		</div>
+																	</div>
+																</div>
+															</div>
 														</div>
 													</div>
 												</div>
@@ -173,257 +228,307 @@
 											<div class="row">
 												<div class="col-md-12">
 													<div class="row">
-														<div class="col-md-5">
-															<h4>Clients <span class="badge">{{ vm.client_lists.length }}</span></h4>
+														<div class="col-md-5 padding-left-0">
+															<h4 class="violet font-size-15 margin-bottom-0
+															"><b>Clients</b>
+															<span class="badge btn-dark-violet">
+															{{ vm.client_lists.length }}</span>
+															</h4>
 														</div>
-														<div class="col-md-7">
+														<div class="col-md-7 padding-right-0">
 															<div class="pull-right">
-																<button type="button" class="btn btn-primary btn-md"
+																<button type="button" class="btn btn-dark-bluegreen"
 																data-toggle="modal" data-target="#modal-add-contact">
-																	<i class="ti-plus"></i>&nbsp;&nbsp;Add Contact
+																	<i class="ti-plus"></i>&nbsp;&nbsp;Add Existing
 																</button>
-																<button type="button" class="btn btn-primary btn-md">
-																	Add Existing
+																<button type="button" 
+																class="btn btn-dark-violet">
+																	<i class="ti-plus"></i>&nbsp;&nbsp;Add Client
 																</button>
 															</div>
 														</div>
 													</div>
 													<br/>
 													<div class="row">
-														<div class="col-md-12">
-															<table class="table table-bordered">
-																<th>Name</th>
-																<th>Preferred Name</th>
-																<th>DOB</th>
-																<th>Gender</th>
-																<th>Smoker</th>
-																<th>Phone</th>
-																<th>Role</th>
-																<tbody>
-																	<tr ng-repeat="client_list in vm.client_lists">
-																		<td> {{ client_list.FirstName }} {{ client_list.MiddleName }} {{ client_list.LastName }} </td>
-																		<td>{{ client_list.PreferredName }}</td>
-																		<td>{{ client_list.DOB }}</td>
-																		<td>{{ client_list.Gender }}</td>
-																		<td>{{ client_list.SmokerStatus }}</td>
-																		<td>
-																			<p>{{ client_list.Phone[0].Number }}</p>
-																			<p>{{ client_list.Phone[2].Number }}</p>
-																		</td>
-																		<td>
-																			{{ client_list.Role }}
-																			<i class="fa fa-pencil-square-o"></i>
-																			<i class="fa fa-pencil-square-o"></i>
-																		</td>
-																	</tr>
-																</tbody>
-															</table>
-														</div>
+														<table class="table table-bordered violet-bordered">
+															<thead class="light-violet">
+																<th><span class="violet">Name</span></th>
+																<th><span class="violet">Preferred Name</span></th>
+																<th>
+																<span class="violet">DOB</span></th>
+																<th>
+																<span class="violet">Gender</span></th>
+																<th>
+																<span class="violet">Smoker</span></th>
+																<th>
+																<span class="violet">Phone</span></th>
+																<th>
+																<span class="violet">Role</span></th>
+															</thead>
+															<tbody>
+																<tr ng-repeat="client_list in vm.client_lists">
+																	<td> 
+																	<span class="violet-text-color">
+																	{{ client_list.FirstName }} {{ client_list.MiddleName }} {{ client_list.LastName }} </span>
+																	</td>
+																	<td>
+																	<span class="violet-text-color">{{ client_list.PreferredName }}</span>
+																	</td>
+																	<td>
+																	<span class="violet-text-color">{{ client_list.DOB }}</span>
+																	</td>
+																	<td>
+																	<span class="violet-text-color">{{ client_list.Gender }}</span>
+																	</td>
+																	<td>
+																	<span class="violet-text-color">{{ client_list.SmokerStatus }}</span>
+																	</td>
+																	<td>
+																		<p class="violet-text-color">
+																		<i ng-if="client_list.Work" class="fa fa-briefcase violet-text-color"></i> {{ client_list.Work }}</p>
+																		<p class="violet-text-color">
+																		<i ng-if="client_list.Home" class="fa fa-home violet-text-color"></i> {{ client_list.Home }}</p>
+																	</td>
+																	<td>
+																		<span class="violet-text-color">{{ client_list.Role }}
+																		</span>
+																		<span class="pull-right">
+																			<i class="fa fa-pencil-square-o
+																			violet-text-color"></i>
+																			&nbsp;
+																			<i class="fa fa fa-trash
+																			violet-text-color"></i>
+																		</span>
+																	</td>
+																</tr>
+															</tbody>
+														</table>
 													</div>
 												</div>
 											</div>
 											<br/>
 											<div class="row">
-												<div class="col-md-12">
-													<div class="row">
-														<div class="col-md-5">
-															<h4>Relationships 
-															<span class="badge">
-															{{ vm.relationship_lists.length }}</span>
-															</h4>
+												<div class="row">
+													<div class="col-md-5">
+														<h4 class="violet font-size-15 margin-bottom-0"><b>Relationships</b>
+														<span class="badge btn-dark-violet">
+														{{ vm.relationship_lists.length }}</span>
+														</h4>
+													</div>
+													<div class="col-md-7">
+														<div class="pull-right">
+															<button type="button" class="btn btn-dark-violet"
+															data-toggle="modal" data-target="#modal-add-relationship">
+																<i class="ti-plus"></i>&nbsp;&nbsp;Add Relationship
+															</button>
 														</div>
-														<div class="col-md-7">
-															<div class="pull-right">
-																<button type="button" class="btn btn-primary btn-md"
-																data-toggle="modal" data-target="#modal-add-relationship">
-																	<i class="ti-plus"></i>&nbsp;&nbsp;Add Relationship
-																</button>
+													</div>
+												</div>
+												<br/>
+												<div class="panel panel-white" ng-class="{'panel-background' : vm.relationship_lists.length <= 0 }"
+												ng-show="vm.relationship_lists.length <= 0">
+													<div class="panel-body height-90">
+														<div class="row">
+															<div class="col-md-12">
+																<h5 class="default-text-color text-center margin-20">
+																<b>No Relationships Added</b></h5>
+																
 															</div>
 														</div>
 													</div>
-													<br/>
-													<div class="panel panel-white">
-														<div class="panel-body">
-															<div class="row">
-																<div class="col-md-12">
-																	<table class="table table-bordered">
-																		<th>Entity Name</th>
-																		<th>Entrust Type</th>
-																		<th>Phone</th>
-																		<th>Mobile</th>
-																		<th>Email</th>
-																		<th>Address</th>
-																		<th>Action</th>
+												</div>
+												<table class="table table-bordered violet-bordered" ng-show="vm.relationship_lists.length > 0">
+													<thead class="light-violet">
+														<th><span class="violet">Entity Name</span></th>
+														<th><span class="violet">Entrust Type</span></th>
+														<th><span class="violet">Phone</span></th>
+														<th><span class="violet">Mobile</span></th>
+														<th><span class="violet">Email</span></th>
+														<th><span class="violet">Address</span></th>
+														<th><span class="violet">Action</span></th>
+													</thead>
+													<tbody>
+														<tr ng-repeat="relationship_list in vm.relationship_lists">
+															<td> {{ relationship_list.Name }} </td>
+															<td> {{ relationship_list.OrganisationType }}</td>
+															<td> {{ relationship_list.Work }}</td>
+															<td> {{ relationship_list.Mobile }}</td>
+															<td> 
+																{{ relationship_list.Email[0].EmailAddress }}
+															</td>
+															<td>
+																{{ relationship_list.formatted_address}}
+															</td>
+															<td>
+																<span class="text-center">
+																	<i class="fa fa-pencil-square-o
+																	violet-text-color"></i>
+																	&nbsp;
+																	<i class="fa fa fa-trash
+																	violet-text-color"></i>
+																</span>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<br/>
+											<div class="row">
+												<div class="row">
+													<div class="col-md-12">
+														<h4 class="violet font-size-15 margin-bottom-0"><b>Contact Information</b></h4>
+													</div>	
+												</div>
+												<br/>
+												<div class="panel panel-white panel-background">
+													<div class="panel-body padding-top-30">
+														<div class="row">	
+															<div class="col-md-6">
+																<div ng-repeat="address_list in 
+																vm.address_lists">
+																	<h5 class="violet font-size-15"><b>{{address_list.Type }} Address</b></h5>
+																	<table class="table padding-top-34">
 																		<tbody>
-																			<tr ng-repeat="relationship_list in vm.relationship_lists">
-																				<td> {{ relationship_list.Name }} </td>
-																				<td> {{ relationship_list.OrganisationType }}</td>
-																				<td> {{ relationship_list.Work }}</td>
-																				<td> {{ relationship_list.Mobile }}</td>
-																				<td> 
-																					{{ relationship_list.Email[0].EmailAddress }}
-																				</td>
+																			<tr>
 																				<td>
-																					{{ relationship_list.formatted_address}}
+																					<span class="font-size-10 pull-right">ADDRESS</span>
 																				</td>
-																				<td>
-																					{{ client_list.Role }}
-																					<i class="fa fa-pencil-square-o"></i>
-																					<i class="fa fa-pencil-square-o"></i>
+																				<td class="padding-bottom-30">
+																					<textarea class="form-control autosize violet-bordered violet">
+																						{{ address_list.formatted_address }}
+																					</textarea>
+
+																					<div ng-if="address_list.Type == 'Home'" 
+																					class="margin-top-10">
+																						<input type="checkbox" ng-model="vm.isChecked"/>
+																						<label> same as Mailing Address </label>
+																					</div>
 																				</td>
 																			</tr>
 																		</tbody>
 																	</table>
 																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-											<br/>
-											<div class="row">
-												<div class="col-md-12">
-													<div class="row">
-														<div class="col-md-12">
-															<h4>Contact Information</h4>
-														</div>													
-													</div>
-													<br/>
-													<div class="panel panel-white">
-														<div class="panel-body">
-															<div class="col-md-12">	
-																<div class="col-md-7">
-																	<div  ng-repeat="address_list in vm.address_lists">
-																		<h5>{{address_list.Type }}</h5>
-																		<div>
-																			<table class="table">
-																				<tbody>
-																					<td>
-																						ADDRESS
-																					</td>
-																					<td>
-																						<textarea class="form-control autosize">
-																							{{ address_list.formatted_address }}
-																						</textarea>
-
-																						<div class="checkbox clip-check check-primary" ng-if="address_list.Type == 'Home'">
-																						<input type="checkbox" id="checkbox1" ng-model="vm.isChecked">
-																						<label for="checkbox1"> Remember me </label>
-																					</div>
-																					</td>
-																				</tbody>
-																			</table>
-																		</div>
-																	</div>
-																	<div class="checkbox clip-check check-primary text-center">
-																		<input type="checkbox" id="checkbox1" value="1">
-																		<label for="checkbox1"> Remember me </label>
-																	</div>
-																	<div class="checkbox clip-check check-primary text-center">
-																		<input type="checkbox" id="checkbox1" value="1">
-																		<label for="checkbox1"> Remember me </label>
-																	</div>
+																<div class="col-md-3"></div>
+																<div class="margin-bottom-30 col-md-9"> 
+																	<input type="checkbox" value="{{vm.home_address.isMarketing}}">
+																	<label class="violet"> Include in marketing </label>
+																	<br/>
+																	<input type="checkbox" value="{{vm.home_address.isNewsletter}}">
+																	<label class="violet"> Include in newsletters </label>
 																</div>
-																<div class="col-md-5">
-																	<div class="panel panel-white">
-																		<div class="panel-body">
-																			<div class="col-md-12">
-																				<div class="row">
-																					<div class="col-md-5">
-																						<h5>ADVISER</h5>
-																					</div>
-																					<div class="col-md-7">
-																						<input type="text" class="form-control"
-																						value=" {{ vm.home_address.BrokerFullName }}">
-																					</div>
+															</div>
+															<div class="col-md-6">
+																<div class="panel panel-white violet-bordered margin-top-55">
+																	<div class="panel-body">
+																		<form role="form" class="form-horizontal">
+																			<div class="form-group">
+																				<label class="font-size-10 col-sm-4 control-label"> ADVISER </label>
+																				<div class="col-sm-8 row">
+																					<input type="text" class="form-control" value=" {{ vm.home_address.BrokerFullName }}">
 																				</div>
-																				<div class="row">
-																					<div class="col-md-5">
-																						<h5>EMAIL</h5>
-																					</div>
-																					<div class="col-md-7">
-																						<input type="text"
-																						class="form-control"
-																						value=" {{ vm.home_address.MainEmail }}
-																						">
-																					</div>
+																			</div>
+																			<div class="form-group">
+																				<label class="font-size-10 col-sm-4 control-label"> EMAIL </label>
+																				<div class="col-sm-8 row">
+																					<input type="text"  class="form-control"
+																					value="{{ vm.home_address.MainEmail }}">
 																				</div>
-																				<div class="row">
-																					<div class="col-md-5">
-																						<h5>CLIENT TYPE</h5>
+																			</div>
+																			<div class="form-group">
+																				<label class="font-size-10 col-sm-4 control-label"> CLIENT TYPE </label>
+																				<div class="col-sm-8 row">
+																					<div class="list-group-item col-md-10">
+																						<span class="label partition-purple" ng-repeat="client_type in vm.home_address.ClientTypes">
+																							{{client_type }}
+																							<i class="fa fa-close"></i>
+																						</span>
 																					</div>
-																					<div class="col-md-7">
-																						<div class="list-group-item">
-																							<span class="label partition-purple" ng-repeat="client_type in vm.home_address.ClientTypes">
-																								{{client_type }}
-																							</span>
-																						</div>
-																					</div>
-																				</div>
-																				<div class="row">
-																					<div class="col-md-5">
-																						<h5>RATING</h5>
-																					</div>
-																					<div class="col-md-7">
-																						<div class="list-group-item">
-																							<span class="label partition-purple" ng-repeat="rating in vm.home_address.Rating">
-																								{{ rating }}
-																							</span>
-																						</div>
-																					</div>
-																				</div>
-																				<div class="row">
-																					<div class="col-md-5">
-																						<h5>REVIEW MONTH</h5>
-																					</div>
-																					<div class="col-md-7">
-																						<div class="list-group-item">
-																							<span class="label partition-purple">
-																								{{ vm.home_address.ReviewMonth }}
-																							</span>
-																						</div>
-																					</div>
-																				</div>
-																				<div class="row">
-																					<div class="col-md-5">
-																						<h5>REFERENCE CODE</h5>
-																					</div>
-																					<div class="col-md-7">
-																						<input type="text"  class="form-control"value=" {{ vm.home_address.ReferenceCode }}">
-																						
-																					</div>
-																				</div>
-																				<div class="row">
-																					<div class="col-md-5">
-																						<h5>REFERENCE SOURCE</h5>
-																					</div>
-																					<div class="col-md-7">
-																						<input type="email" class="form-control" value=" {{ vm.home_address.ReferralCategory }}">
-																					</div>
-																				</div>
-																				<div class="row">
-																					<div class="col-md-5">
-																						<h5>CATEGORIES</h5>
-																					</div>
-																					<div class="col-md-7">
-																						<div class="list-group-item">
-																							<span class="label partition-purple" ng-repeat="category in vm.home_address.Categories">
-																								{{ category }}
-																							</span>
-																						</div>
+																					<div class="col-md-2 pull-left">
+																					<button class="btn btn-dark-violet" type="button">
+																						<i class="fa fa-plus"></i>
+																					</button>
 																					</div>
 																				</div>
 																			</div>
-																		</div>
+																			<div class="form-group">
+																				<label class="font-size-10 col-sm-4 control-label"> RATING </label>
+																				<div class="col-sm-8 row">
+																					<div class="list-group-item col-md-10">
+																						<span class="label partition-purple" ng-repeat="rating in vm.home_address.Rating">
+																							{{rating }}
+																							<i class="fa fa-close"></i>
+																						</span>
+																					</div>
+																					<div class="col-md-2 pull-left">
+																					<button class="btn btn-dark-violet" type="button">
+																						<i class="fa fa-plus"></i>
+																					</button>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="form-group">
+																				<label class="font-size-10 col-sm-4 control-label"> REVIEW MONTH </label>
+																				<div class="col-sm-8 row">
+																					<div class="list-group-item col-md-10">
+																						<span class="label partition-purple">
+																							{{ vm.home_address.ReviewMonth }}
+																							<i class="fa fa-close"></i>
+																						</span>
+																					</div>
+																					<div class="col-md-2 pull-left">
+																						<button class="btn btn-dark-violet" type="button">
+																						<i class="fa fa-plus"></i>
+																						</button>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="form-group">
+																				<label class="font-size-10 col-sm-4 control-label"> REFERENCE CODE </label>
+																				<div class="col-sm-8 row">
+																					<input type="text"  class="form-control"
+																					value="{{ vm.home_address.ReferenceCode }}">
+																				</div>
+																			</div>
+																			<div class="form-group">
+																				<label class="font-size-10 col-sm-4 control-label"> REFERENCE SOURCE </label>
+																				<div class="col-sm-8 row">
+																					<div class="list-group-item col-md-10">
+																						<span class="label partition-purple">
+																							{{ vm.home_address.ReferralCategory }}
+																							<i class="fa fa-close"></i>
+																						</span>
+																					</div>
+																					<div class="col-md-2 pull-left">
+																						<button class="btn btn-dark-violet" type="button">
+																						<i class="fa fa-plus"></i>
+																						</button>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="form-group">
+																				<label class="font-size-10 col-sm-4 control-label"> CATEGORIES </label>
+																				<div class="col-sm-8 row">
+																					<div class="list-group-item col-md-10">
+																						<span class="label partition-purple" ng-repeat="category in vm.home_address.Categories">
+																							{{ category }}
+																							<i class="fa fa-close"></i>
+																						</span>
+																					</div>
+																					<div class="col-md-2 pull-left">
+																						<button class="btn btn-dark-violet" type="button">
+																						<i class="fa fa-plus"></i>
+																						</button>
+																					</div>
+																				</div>
+																			</div>
+																		</form>
 																	</div>
-																</div> 
-															</div>
+																</div>
+															</div> 
 														</div>
 													</div>
 												</div>
 											</div>
-
-											
 										</div>
 										<div class="tab-pane fade" id="myTab1_example3">	
 										</div>
@@ -433,47 +538,59 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4">
-						<div class="panel panel-white">
-							<div class="panel-heading border-bottom">
-								<h4 class="panel-title">TAGGED TO {{ $root.FamilyName }}</h4>
-							</div>
-							<div class="panel-body">
-								<span class="btn btn-light-purple" ng-repeat="tag_list in vm.tag_lists">
-									{{ tag_list.ActivityDetails}}
-								</span>
-								<a class="btn btn-wide btn-info btn-squared" href="#"><i class="ti-plus"></i> Create Tag</a>
+				<div class="col-md-4" id="other-details">
+					<div class="panel panel-white tagged">
+						<div class="panel-heading border-bottom">
+							<h6 class="panel-title font-size-12 violet"><i class="fa fa-tag"></i> <b>TAGGED T {{ $root.FamilyName }} </b> </h6>
+							<div class="panel-tools">
+								<a data-toggle="tooltip" class="btn btn-sm" href="#">
+									<i class="violet fa fa-chevron-down"></i>
+								</a>
 							</div>
 						</div>
-					<div class="row">
-						<div class="panel panel-white">
-							<div class="panel-heading border-bottom">
-								<h4 class="panel-title">NOTES <span class="badge">{{ vm.note_lists.length }}</span></h4>
-							</div>
-							<div class="panel-body">
-									<div class=""
-									ng-repeat="note_list in vm.note_lists">
-										<p><b>{{ note_list.ActivityTitle }}</b></p>
-										<p>{{ note_list.ActivityDetails }}</p>
-									</div>
-					
-							</div>
-							<div class="panel-footer">
-								<a class="btn btn-wide btn-info btn-squared" href="#"><i class="ti-plus"></i> Create Note</a>
-							</div>
+						<div class="panel-body padding-top-0">
+							<span class="tag btn light-violet violet" ng-repeat="tag_list in vm.tag_lists">
+								{{ tag_list.ActivityDetails}} <i class="fa fa-circle font-size-10 violet"></i>
+							</span>
+							<a class="btn btn-wide btn-dark-bluegreen btn-squared" href="#">
+								<i class="ti-plus"></i> Create Tag
+							</a>
 						</div>
 					</div>
-					<div class="row">
-						<div class="panel panel-white">
-							<div class="panel-heading border-bottom">
-								<h4 class="panel-title">TASKS <span class="badge">0</span></h4>
+					<div class="panel panel-white tagged">
+						<div class="panel-heading border-bottom">
+							<h6 class="panel-title font-size-12 violet"><i class="fa fa-file-text"></i> <b>NOTES {{ $root.FamilyName }} </b> </h6>
+							<div class="panel-tools">
+								<a data-toggle="tooltip" class="btn btn-sm" href="#">
+									<i class="violet fa fa-chevron-down"></i>
+								</a>
 							</div>
-							<div class="panel-body">
-					
+						</div>
+						<div class="panel-body padding-top-0">
+							<div class="border-bottom note" ng-repeat="note_list in vm.note_lists">
+								<span class="uppercase font-size-12">
+									<b>{{ note_list.ActivityTitle }}</b>
+								</span>
+								<p>{{ note_list.ActivityDetails }}</p>
 							</div>
-							<div class="panel-footer">
-								<a class="btn btn-wide btn-info btn-squared" href="#"><i class="ti-plus"></i> Create Note</a>
+						</div>
+						<div class="panel-footer no-border-top">
+							<a class="btn btn-wide btn-dark-bluegreen btn-squared" href="#"><i class="ti-plus"></i> Create Note</a>
+						</div>
+					</div>
+					<div class="panel panel-white tagged">
+						<div class="panel-heading border-bottom">
+							<h6 class="panel-title font-size-12 violet"><i class="fa fa-tasks"></i> <b>TASKS </b> <span class="badge notif-color">3</span></h6>
+							<div class="panel-tools">
+								<a data-toggle="tooltip" class="btn btn-sm" href="#">
+									<i class="violet fa fa-chevron-down"></i>
+								</a>
 							</div>
+						</div>
+						<div class="panel-body">
+						</div>
+						<div class="panel-footer no-border-top">
+							<a class="btn btn-wide btn-dark-bluegreen btn-squared" href="#"><i class="ti-plus"></i> Create Tasks</a>
 						</div>
 					</div>
 				</div>

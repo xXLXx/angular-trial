@@ -26,6 +26,10 @@ body, .main-content {
     color: #FFF;
 }
 
+.btn:hover{
+	color: #FFF;
+}
+
 .btn-violet {
     background-color: #7266ba;
     border-color: #7266ba;
@@ -37,6 +41,7 @@ body, .main-content {
     border-color: #5898d0;
     color: #FFF;
 }
+
 .btn-sky-blue {
 	background-color: #5b9bd1;
     border-color: #5b9bd1;
@@ -58,6 +63,85 @@ body, .main-content {
 	color: #705e7b;
 }
 
-#summary .panel-white, .partition-white {
-	border: 1px solid rgba(112, 94, 123, 0.45) !important;
+.light-violet {
+	background-color: #f5f2f8;
+}
+
+.violet-text-color {
+	color: #6d4d83;
+}
+
+.default-text-color {
+	color: #a799b3;
+}
+
+.notif-color {
+	background-color: rgb(235, 139, 139) !important;
+}
+
+.violet-bordered {
+	border: 1px solid rgba(112, 94, 123, 0.35) !important;
+}
+
+.padding-top-0 {
+	padding-top: 0px !important;
+}
+.padding-left-20 {
+	padding-left: 20px !important;
+}
+.padding-right-20 {
+	padding-right: 20px !important;
+}
+
+.padding-right-0 {
+	padding-right: 0px !important;
+}
+
+.padding-left-0 {
+	padding-left: 0px !important;
+}
+
+.padding-bottom-30 {
+	padding-bottom: 30px !important;
+}
+
+.padding-bottom-15 {
+	padding-bottom: 15px !important;
+}
+.padding-top-15 {
+	padding-top: 15px !important;
+}
+
+.padding-top-34 {
+	padding-top: 34px !important;
+}
+
+.margin-bottom-0 {
+	margin-bottom: 0px !important;
+}
+.margin-top-55 {
+    margin-top: 55px;
+}
+.padding-top-30 {
+	padding-bottom: 0px !important;
+}
+
+.font-size-12 {
+	font-size: 12px !important;
+}
+
+.font-size-10 {
+	font-size: 10px !important;
+}
+
+.font-size-15 {
+	font-size: 15px !important;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.panel-background {
+	background-color: #faf8fb !important;
 }

@@ -104,12 +104,13 @@
             function GetTemplateUrl () {
                 return NG_PATH.DIRECTIVES + scope.body;
             }
-        
+    
 
             function OkModal () {
                 if (scope.id === $rootScope.id_config.addContact) {
                     $rootScope.$broadcast('MODAL_ADD_CONTACT_OK', scope.id, scope.contact);
                 } else if (scope.id === $rootScope.id_config.addRelationship) {
+                    console.log(scope.relationship);
                     $rootScope.$broadcast('MODAL_ADD_RELATIONSHIP_OK', scope.id, scope.relationship);
                 }
             }
