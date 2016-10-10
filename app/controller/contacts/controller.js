@@ -212,11 +212,37 @@
                 'PreferredName': contact.preferred_name,
                 'Title': contact.title,
                 'Gender': contact.gender,
-                'Employment': [{}],
+                'Employment': [{
+                    'Occupation': contact.occupation,
+                    'Employer': contact.employer,
+                    'OccupationClass': 0
+                }],
                 'SmokerStatus': false,
                 'Phone' : [],
                 'Address': [],
-                'Email': []
+                'Email': [],
+                'Phone': [
+                    {
+                        'Type': 'HOME',
+                        'Number': contact.home_phone
+                    },
+                    {
+                        'Type': 'BUSINESS',
+                        'Number': contact.business_phone
+                    },
+                    {
+                        'Type': 'MOBILE',
+                        'Number': contact.mobile_phone
+                    }
+                ],
+                'Email': [
+                    {
+                        'Type': 'EMAIL',
+                        'EmailAddress': contact.email_address
+                    }
+                ],
+                "BestTimeToCall": contact.best_time_to_call + 'AM',
+                "SmokerStatus": contact.smoker,
             }];
 
             ContactService.AddConctactSet(data).then(function(response) {});

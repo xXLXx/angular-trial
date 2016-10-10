@@ -34,10 +34,10 @@
                                 '<div class="modal-content">' +
                                     '<div class="modal-header">' +
                                         '<div class="col-md-6">' +
-                                            '<h2 class="modal-title">{{title}}</h2>' +
+                                            '<h3 class="modal-title">{{title}}</h3>' +
                                         '</div>'+
                                         '<div class="col-md-5">' +
-                                            '<button class="btn btn-primary pull-right" ng-click="OkModal()" ng-show="showUpBtnOk">{{btnOk}}</button>'+
+                                            '<button class="btn btn-primary btn-bluegreen pull-right" ng-click="OkModal()" ng-show="showUpBtnOk">{{btnOk}}</button>'+
                                         '</div>'+
                                         '<div class="col-md-1">' +
                                             '<button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-show="showBtnExit"><span aria-hidden="true">&times;</span></button>' +
