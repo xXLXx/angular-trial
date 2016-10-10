@@ -53,12 +53,12 @@
 	        		</div>
 	        	</div>
 				<div class="col-md-6">
-					<div class="pull-right hidden-xs">
-						<button ng-click="vm.ShowAddModalContact()" type="button" class="btn btn-primary btn-lg btn-bluegreen"
+					<div class="pull-right">
+						<button id="btn-add-contact" ng-click="vm.ShowAddModalContact()" type="button" class="btn btn-primary btn-lg btn-bluegreen"
 						data-toggle="modal" data-target="#modal-add-contact">
 							<i class="ti-plus"></i>&nbsp;&nbsp;Add Contact
 						</button>
-						<button type="button" class="btn btn-primary btn-lg btn-bluegreen disabled"
+						<button type="button" class="btn btn-primary btn-lg btn-bluegreen disabled hidden-xs"
 							data-placement="bottom" data-toggle="tooltip" title="Select 2 or more contacts to merge">
 							Merge Contact
 						</button>
