@@ -233,10 +233,8 @@
                     'Employer': contact.employer,
                     'OccupationClass': 0
                 }],
-                'SmokerStatus': false,
-                'Phone' : [],
-                'Address': [],
-                'Email': [],
+                'BestTimeToCall': contact.best_time_to_call + contact.best_time_to_call_apm,
+                'SmokerStatus': contact.smoker == 'Yes' ? true : false,
                 'Phone': [
                     {
                         'Type': 'HOME',
@@ -251,14 +249,13 @@
                         'Number': contact.mobile_phone
                     }
                 ],
+                'Address': [],
                 'Email': [
                     {
                         'Type': 'EMAIL',
                         'EmailAddress': contact.email_address
                     }
                 ],
-                "BestTimeToCall": contact.best_time_to_call + 'AM',
-                "SmokerStatus": contact.smoker,
             }];
 
             ContactService.AddConctactSet(data).then(function(response) {});
